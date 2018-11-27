@@ -19,3 +19,24 @@ C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\Newt
 C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.pdb
 C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.xml
 C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CopyComplete
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe.config
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.pdb
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.dll
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.dll
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.dll
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.xml
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.xml
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.pdb
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.xml
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csprojAssemblyReference.cache
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Form1.resources
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Properties.Resources.resources
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.GenerateResource.cache
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CoreCompileInputs.cache
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CopyComplete
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.exe
+C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.pdb

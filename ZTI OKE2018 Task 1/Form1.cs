@@ -119,7 +119,7 @@ namespace ZTI_OKE2018_Task_1
                 }
             }
 
-            Console.WriteLine("Query took " + query.QueryExecutionTime + " milliseconds");
+            Console.WriteLine("Query took " + query.QueryExecutionTime + " milliseconds\n");
 
             // ------------------------------------------------------------------------------
             SparqlRemoteEndpoint endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
@@ -132,12 +132,48 @@ namespace ZTI_OKE2018_Task_1
             //Get the result
             var dbpGraph = endpoint.QueryWithResultSet(query2);
             if (dbpGraph.Results.Count > 0)
-            { 
-                outputTextBox.Text = "finded in dbpedia:\n";
-                outputTextBox.Text += dbpGraph.Results.First().ToString();
+            {
+                var result = dbpGraph.Results.First().ToString();
+                Console.WriteLine("finded in dbpedia:");
+                Console.WriteLine(result);
+                //outputTextBox.Text = "finded in dbpedia:\n";
+                //outputTextBox.Text += result;
             }
             else
-                outputTextBox.Text = "couldnt find";
+                Console.WriteLine("\ncouldnt find\n");
+                //outputTextBox.Text = "couldnt find";
+
+            var query3 = "Select ?name ?place WHERE {?place a <http://dbpedia.org/ontology/Place>. ?place foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
+
+            //Get the result
+            var dbpGraph2 = endpoint.QueryWithResultSet(query3);
+            if (dbpGraph2.Results.Count > 0)
+            {
+                var result2 = dbpGraph2.Results.First().ToString();
+                Console.WriteLine("finded in dbpedia:");
+                Console.WriteLine(result2);
+                //outputTextBox.Text += "\nfinded in dbpedia:\n";
+                //outputTextBox.Text += result2;
+            }
+            else
+                Console.WriteLine("\ncouldnt find\n");
+                //outputTextBox.Text += "\ncouldnt find";
+                
+            var query4 = "Select ?name ?organisation WHERE {?organisation a<http://dbpedia.org/ontology/Organisation>. ?organisation foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
+
+            //Get the result
+            var dbpGraph3 = endpoint.QueryWithResultSet(query4);
+            if (dbpGraph3.Results.Count > 0)
+            {
+                var result3 = dbpGraph3.Results.First().ToString();
+                Console.WriteLine("finded in dbpedia:");
+                Console.WriteLine(result3);
+                //outputTextBox.Text += "\nfinded in dbpedia:\n";
+                //outputTextBox.Text += result3;
+            }
+            else
+                Console.WriteLine("\ncouldnt find\n");
+                //outputTextBox.Text += "\ncouldnt find";
 
             RdfXmlWriter rdfxmlwriter = new RdfXmlWriter();
             //rdfxmlwriter.Save(dbpGraph, Console.Out); // view test result details for output.
