@@ -1,0 +1,21 @@
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe.config
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.pdb
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csprojAssemblyReference.cache
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Form1.resources
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Properties.Resources.resources
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.GenerateResource.cache
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CoreCompileInputs.cache
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.exe
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.pdb
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.dll
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.dll
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.dll
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.xml
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.xml
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.pdb
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.xml
+C:\Users\umlau\source\repos\ZTI OKE2018 Task 1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CopyComplete

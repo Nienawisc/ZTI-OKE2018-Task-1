@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	<!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+	<!ENTITY xsd 'http://www.w3.org/2001/XMLSchema#'>
+]>
+<rdf:RDF xml:base="http://dbpedia.org/sparql" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:ns0="http://dbpedia.org/class/yago/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2011_IFK_G%C3%B6teborg_season">
+    <ns1:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns1="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2012%E2%80%9313_Svenska_Cupen">
+    <ns2:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns2="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2012_BK_H%C3%A4cken_season">
+    <ns3:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns3="http://dbpedia.org/ontology/" />
+    <ns4:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns4="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2012_IFK_G%C3%B6teborg_season">
+    <ns5:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns5="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013%E2%80%9314_Svenska_Cupen">
+    <ns6:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns6="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013%E2%80%9314_UEFA_Europa_League_qualifying_phase_and_play-off_round">
+    <ns7:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns7="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013%E2%80%9314_UEFA_Youth_League">
+    <ns8:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns8="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013%E2%80%9314_Videoton_FC_season">
+    <ns9:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns9="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013_IFK_G%C3%B6teborg_season">
+    <ns10:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns10="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013_Malm%C3%B6_FF_season">
+    <ns11:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns11="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013_Svenska_Supercupen">
+    <ns12:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns12="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013_UEFA_European_Under-19_Championship_elite_qualification">
+    <ns13:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns13="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2013_in_Swedish_football">
+    <ns14:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns14="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014%E2%80%9315_Legia_Warsaw_season">
+    <ns15:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns15="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014%E2%80%9315_Svenska_Cupen">
+    <ns16:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns16="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014%E2%80%9315_UEFA_Champions_League_qualifying_phase_and_play-off_round">
+    <ns17:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns17="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014%E2%80%9315_UEFA_Europa_League_qualifying_phase_and_play-off_round">
+    <ns18:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns18="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014%E2%80%9315_UEFA_Youth_League">
+    <ns19:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns19="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014%E2%80%9315_in_Polish_football">
+    <ns20:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns20="http://dbpedia.org/ontology/" />
+    <ns21:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns21="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_AIK_Fotboll_season">
+    <ns22:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns22="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_Allsvenskan">
+    <ns23:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns23="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_BK_H%C3%A4cken_season">
+    <ns24:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns24="http://dbpedia.org/ontology/" />
+    <ns25:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns25="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_Djurg%C3%A5rdens_IF_season">
+    <ns26:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns26="http://dbpedia.org/ontology/" />
+    <ns27:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns27="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_IFK_G%C3%B6teborg_season">
+    <ns28:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns28="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_Malm%C3%B6_FF_season">
+    <ns29:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns29="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_St_Patrick's_Athletic_F.C._season">
+    <ns30:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns30="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_UEFA_European_Under-17_Championship">
+    <ns31:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns31="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_UEFA_European_Under-19_Championship_qualifying_round">
+    <ns32:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns32="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2014_in_Swedish_football">
+    <ns33:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns33="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_APOEL_F.C._season">
+    <ns34:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns34="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_FC_Krasnodar_season">
+    <ns35:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns35="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_FC_Rubin_Kazan_season">
+    <ns36:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns36="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_FC_Schalke_04_season">
+    <ns37:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns37="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_Svenska_Cupen">
+    <ns38:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns38="http://dbpedia.org/ontology/" />
+    <ns39:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns39="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_U.C._Sampdoria_season">
+    <ns40:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns40="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_UEFA_Champions_League_qualifying_phase_and_play-off_round">
+    <ns41:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns41="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_UEFA_Europa_League_group_stage">
+    <ns42:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns42="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_UEFA_Europa_League_qualifying_phase_and_play-off_round">
+    <ns43:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns43="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015%E2%80%9316_UEFA_Youth_League_knockout_phase">
+    <ns44:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns44="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_%C3%96rebro_SK_season">
+    <ns45:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns45="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_Allsvenskan">
+    <ns46:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns46="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_Djurg%C3%A5rdens_IF_season">
+    <ns47:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns47="http://dbpedia.org/ontology/" />
+    <ns48:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns48="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_HJK_season">
+    <ns49:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns49="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_Hammarby_Fotboll_season">
+    <ns50:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns50="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_IFK_G%C3%B6teborg_season">
+    <ns51:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns51="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_IFK_Norrk%C3%B6ping_season">
+    <ns52:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns52="http://dbpedia.org/ontology/" />
+    <ns53:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns53="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_Malm%C3%B6_FF_season">
+    <ns54:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns54="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_UEFA_European_Under-19_Championship">
+    <ns55:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns55="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_UEFA_European_Under-21_Championship_qualification_Group_2">
+    <ns56:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns56="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2015_UEFA_European_Under-21_Championship_qualification_Group_6">
+    <ns57:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns57="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016%E2%80%9317_Celtic_F.C._season">
+    <ns58:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns58="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016%E2%80%9317_U.S._Sassuolo_Calcio_season">
+    <ns59:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns59="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016%E2%80%9317_UEFA_Champions_League_qualifying_phase_and_play-off_round">
+    <ns60:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns60="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016%E2%80%9317_UEFA_Europa_League_group_stage">
+    <ns61:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns61="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016%E2%80%9317_UEFA_Europa_League_qualifying_phase_and_play-off_round">
+    <ns62:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns62="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016%E2%80%9317_in_Scottish_football">
+    <ns63:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns63="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016_%C3%96stersunds_FK_season">
+    <ns64:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns64="http://dbpedia.org/ontology/" />
+    <ns65:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns65="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016_Djurg%C3%A5rdens_IF_season">
+    <ns66:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns66="http://dbpedia.org/ontology/" />
+    <ns67:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns67="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016_Hammarby_Fotboll_season">
+    <ns68:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns68="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016_IFK_G%C3%B6teborg_season">
+    <ns69:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns69="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016_IFK_Norrk%C3%B6ping_season">
+    <ns70:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns70="http://dbpedia.org/ontology/" />
+    <ns71:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns71="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016_Malm%C3%B6_FF_season">
+    <ns72:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns72="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/2016_Svenska_Cupen_Final">
+    <ns73:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns73="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Allsvenskan">
+    <ns74:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns74="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <ns0:Object100002684 rdf:about="http://dbpedia.org/resource/Andreas_Ekberg">
+    <ns75:abstract xml:lang="en" xmlns:ns75="http://dbpedia.org/ontology/">Andreas Ekberg (born 2 January 1985) is a Swedish football referee. Ekberg currently resides in Malmö. He has been a full international referee for FIFA since 2013. He became a professional referee in 2004 and has been an Allsvenskan referee since 2009. Ekberg has refereed 74 matches in Allsvenskan, 55 matches in Superettan and 14 international matches as of 2014.</ns75:abstract>
+    <ns76:abstract xml:lang="nl" xmlns:ns76="http://dbpedia.org/ontology/">Andreas Ekberg (Malmö, 2 januari 1985) is een Zweeds voetbalscheidsrechter. Hij is in dienst van FIFA en UEFA sinds 2013. Ook leidt hij wedstrijden in de Allsvenskan. Op 19 juli 2009 leidde Ekberg zijn eerste wedstrijd in de Zweedse eerste divisie. De wedstrijd tussen Gefle IF en Helsingborgs IF eindigde in een 0-2-nederlaag voor Gefle. Hij gaf in dit duel drie gele kaarten. Vier jaar later, op 4 juli 2013, floot de scheidsrechter zijn eerste wedstrijd in de UEFA Europa League. Videoton FC en FK Mladost Podgorica troffen elkaar in de eerste ronde (2-1). In dit duel deelde de Zweedse leidsman vier gele kaarten uit.</ns76:abstract>
+    <ns77:birthDate rdf:datatype="&xsd;date" xmlns:ns77="http://dbpedia.org/ontology/">1985-1-1</ns77:birthDate>
+    <ns78:birthPlace rdf:resource="http://dbpedia.org/resource/Malm%C3%B6" xmlns:ns78="http://dbpedia.org/ontology/" />
+    <ns79:thumbnail rdf:resource="http://commons.wikimedia.org/wiki/Special:FilePath/Andreas_Ekberg_(2015,_crop_2).jpg?width=300" xmlns:ns79="http://dbpedia.org/ontology/" />
+    <ns80:wikiPageExternalLink rdf:resource="http://fogis.se/domare/elitdomare/fifa-herr/" xmlns:ns80="http://dbpedia.org/ontology/" />
+    <ns81:wikiPageExternalLink rdf:resource="http://www.fifa.com/associations/association=swe/footballofficials/referees/peoplekind=ref.html" xmlns:ns81="http://dbpedia.org/ontology/" />
+    <ns82:wikiPageID rdf:datatype="&xsd;integer" xmlns:ns82="http://dbpedia.org/ontology/">38616368</ns82:wikiPageID>
+    <ns83:wikiPageRevisionID rdf:datatype="&xsd;integer" xmlns:ns83="http://dbpedia.org/ontology/">741802554</ns83:wikiPageRevisionID>
+    <ns84:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Allsvenskan" xmlns:ns84="http://dbpedia.org/ontology/" />
+    <ns85:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Association_football" xmlns:ns85="http://dbpedia.org/ontology/" />
+    <ns86:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:1985_births" xmlns:ns86="http://dbpedia.org/ontology/" />
+    <ns87:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:Living_people" xmlns:ns87="http://dbpedia.org/ontology/" />
+    <ns88:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:Swedish_football_referees" xmlns:ns88="http://dbpedia.org/ontology/" />
+    <ns89:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/FIFA" xmlns:ns89="http://dbpedia.org/ontology/" />
+    <ns90:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/List_of_football_referees" xmlns:ns90="http://dbpedia.org/ontology/" />
+    <ns91:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Malm%C3%B6" xmlns:ns91="http://dbpedia.org/ontology/" />
+    <ns92:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Referee_(association_football)" xmlns:ns92="http://dbpedia.org/ontology/" />
+    <ns93:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Superettan" xmlns:ns93="http://dbpedia.org/ontology/" />
+    <ns94:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Sweden" xmlns:ns94="http://dbpedia.org/ontology/" />
+    <ns95:birthDate rdf:datatype="&xsd;date" xmlns:ns95="http://dbpedia.org/property/">1985-01-02</ns95:birthDate>
+    <ns96:birthPlace rdf:resource="http://dbpedia.org/resource/Sweden" xmlns:ns96="http://dbpedia.org/property/" />
+    <ns97:confederation rdf:datatype="&rdf;langString" xmlns:ns97="http://dbpedia.org/property/">FIFA listed</ns97:confederation>
+    <ns98:fullname rdf:datatype="&rdf;langString" xmlns:ns98="http://dbpedia.org/property/">Lars Christian Andreas Ekberg</ns98:fullname>
+    <ns99:internationalrole rdf:datatype="&rdf;langString" xmlns:ns99="http://dbpedia.org/property/">Referee</ns99:internationalrole>
+    <ns100:internationalyears rdf:datatype="&xsd;integer" xmlns:ns100="http://dbpedia.org/property/">2013</ns100:internationalyears>
+    <ns101:league rdf:resource="http://dbpedia.org/resource/Allsvenskan" xmlns:ns101="http://dbpedia.org/property/" />
+    <ns102:league rdf:resource="http://dbpedia.org/resource/Superettan" xmlns:ns102="http://dbpedia.org/property/" />
+    <ns103:officialname rdf:datatype="&rdf;langString" xmlns:ns103="http://dbpedia.org/property/">Andreas Ekberg</ns103:officialname>
+    <ns104:otheroccupation rdf:datatype="&rdf;langString" xmlns:ns104="http://dbpedia.org/property/">Police officer</ns104:otheroccupation>
+    <ns105:role rdf:datatype="&rdf;langString" xmlns:ns105="http://dbpedia.org/property/">Referee</ns105:role>
+    <ns106:years rdf:datatype="&xsd;integer" xmlns:ns106="http://dbpedia.org/property/">2007</ns106:years>
+    <ns107:years rdf:datatype="&xsd;integer" xmlns:ns107="http://dbpedia.org/property/">2009</ns107:years>
+    <ns108:description xml:lang="en" xmlns:ns108="http://purl.org/dc/terms/">Swedish football referee</ns108:description>
+    <ns109:subject rdf:resource="http://dbpedia.org/resource/Category:1985_births" xmlns:ns109="http://purl.org/dc/terms/" />
+    <ns110:subject rdf:resource="http://dbpedia.org/resource/Category:Living_people" xmlns:ns110="http://purl.org/dc/terms/" />
+    <ns111:subject rdf:resource="http://dbpedia.org/resource/Category:Swedish_football_referees" xmlns:ns111="http://purl.org/dc/terms/" />
+    <ns112:hypernym rdf:resource="http://dbpedia.org/resource/Referee" xmlns:ns112="http://purl.org/linguistics/gold/" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Adjudicator109769636" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/CausalAgent100007347" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/FootballOfficial110101427" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/LivingThing100004258" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Official110372076" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Organism100004475" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/PhysicalEntity100001930" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Referee110514429" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Whole100003553" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/WikicatLivingPeople" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/WikicatSwedishFootballReferees" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/YagoLegalActor" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/YagoLegalActorGeo" />
+    <rdf:type rdf:resource="http://dbpedia.org/ontology/Person" />
+    <rdfs:comment xml:lang="en">Andreas Ekberg (born 2 January 1985) is a Swedish football referee. Ekberg currently resides in Malmö. He has been a full international referee for FIFA since 2013. He became a professional referee in 2004 and has been an Allsvenskan referee since 2009. Ekberg has refereed 74 matches in Allsvenskan, 55 matches in Superettan and 14 international matches as of 2014.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Andreas Ekberg (Malmö, 2 januari 1985) is een Zweeds voetbalscheidsrechter. Hij is in dienst van FIFA en UEFA sinds 2013. Ook leidt hij wedstrijden in de Allsvenskan. Op 19 juli 2009 leidde Ekberg zijn eerste wedstrijd in de Zweedse eerste divisie. De wedstrijd tussen Gefle IF en Helsingborgs IF eindigde in een 0-2-nederlaag voor Gefle. Hij gaf in dit duel drie gele kaarten. Vier jaar later, op 4 juli 2013, floot de scheidsrechter zijn eerste wedstrijd in de UEFA Europa League. Videoton FC en FK Mladost Podgorica troffen elkaar in de eerste ronde (2-1). In dit duel deelde de Zweedse leidsman vier gele kaarten uit.</rdfs:comment>
+    <rdfs:label xml:lang="en">Andreas Ekberg</rdfs:label>
+    <rdfs:label xml:lang="it">Andreas Ekberg</rdfs:label>
+    <rdfs:label xml:lang="nl">Andreas Ekberg</rdfs:label>
+    <ns113:sameAs rdf:resource="http://it.dbpedia.org/resource/Andreas_Ekberg" xmlns:ns113="http://www.w3.org/2002/07/owl#" />
+    <ns114:sameAs rdf:resource="http://nl.dbpedia.org/resource/Andreas_Ekberg" xmlns:ns114="http://www.w3.org/2002/07/owl#" />
+    <ns115:sameAs rdf:resource="http://rdf.freebase.com/ns/m.0r8pwt9" xmlns:ns115="http://www.w3.org/2002/07/owl#" />
+    <ns116:sameAs rdf:resource="http://wikidata.dbpedia.org/resource/Q13604736" xmlns:ns116="http://www.w3.org/2002/07/owl#" />
+    <ns117:sameAs rdf:resource="http://www.wikidata.org/entity/Q13604736" xmlns:ns117="http://www.w3.org/2002/07/owl#" />
+    <ns118:sameAs rdf:resource="http://yago-knowledge.org/resource/Andreas_Ekberg" xmlns:ns118="http://www.w3.org/2002/07/owl#" />
+    <ns119:wasDerivedFrom rdf:resource="http://en.wikipedia.org/wiki/Andreas_Ekberg?oldid=741802554" xmlns:ns119="http://www.w3.org/ns/prov#" />
+    <ns120:depiction rdf:resource="http://commons.wikimedia.org/wiki/Special:FilePath/Andreas_Ekberg_(2015,_crop_2).jpg" xmlns:ns120="http://xmlns.com/foaf/0.1/" />
+    <ns121:gender xml:lang="en" xmlns:ns121="http://xmlns.com/foaf/0.1/">male</ns121:gender>
+    <ns122:givenName xml:lang="en" xmlns:ns122="http://xmlns.com/foaf/0.1/">Andreas</ns122:givenName>
+    <ns123:isPrimaryTopicOf rdf:resource="http://en.wikipedia.org/wiki/Andreas_Ekberg" xmlns:ns123="http://xmlns.com/foaf/0.1/" />
+    <ns124:name xml:lang="en" xmlns:ns124="http://xmlns.com/foaf/0.1/">Andreas Ekberg</ns124:name>
+    <ns125:surname xml:lang="en" xmlns:ns125="http://xmlns.com/foaf/0.1/">Ekberg</ns125:surname>
+  </ns0:Object100002684>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Belgium_national_under-21_football_team">
+    <ns126:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns126="http://dbpedia.org/ontology/" />
+    <ns127:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns127="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Canoeing_at_the_1960_Summer_Olympics_%E2%80%93_Men's_C-1_1000_metres">
+    <ns128:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Danilo_Tognon" xmlns:ns128="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <ns0:Object100002684 rdf:about="http://dbpedia.org/resource/Danilo_Tognon">
+    <ns129:abstract xml:lang="en" xmlns:ns129="http://dbpedia.org/ontology/">The Canoeist Danilo Tognon (born October 9, 1937) is an Italian sprint canoer who competed in the early 1960s. He was eliminated in the semifinals of the C-1 1000 m event at the 1960 Summer Olympics in Rome(the capital of Italy).</ns129:abstract>
+    <ns130:abstract xml:lang="it" xmlns:ns130="http://dbpedia.org/ontology/">Partecipò alle Olimpiadi di Roma del 1960 nel C1 1000 metri.</ns130:abstract>
+    <ns131:birthDate rdf:datatype="&xsd;date" xmlns:ns131="http://dbpedia.org/ontology/">1937-10-9</ns131:birthDate>
+    <ns132:wikiPageExternalLink rdf:resource="http://www.sports-reference.com/olympics/athletes/to/danilo-tognon-1.html" xmlns:ns132="http://dbpedia.org/ontology/" />
+    <ns133:wikiPageID rdf:datatype="&xsd;integer" xmlns:ns133="http://dbpedia.org/ontology/">24188476</ns133:wikiPageID>
+    <ns134:wikiPageRevisionID rdf:datatype="&xsd;integer" xmlns:ns134="http://dbpedia.org/ontology/">743258933</ns134:wikiPageRevisionID>
+    <ns135:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/1960_Summer_Olympics" xmlns:ns135="http://dbpedia.org/ontology/" />
+    <ns136:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Canoe_racing" xmlns:ns136="http://dbpedia.org/ontology/" />
+    <ns137:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Canoeing_at_the_1960_Summer_Olympics_%E2%80%93_Men's_C-1_1000_metres" xmlns:ns137="http://dbpedia.org/ontology/" />
+    <ns138:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:1937_births" xmlns:ns138="http://dbpedia.org/ontology/" />
+    <ns139:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:Canoeists_at_the_1960_Summer_Olympics" xmlns:ns139="http://dbpedia.org/ontology/" />
+    <ns140:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:Italian_male_canoeists" xmlns:ns140="http://dbpedia.org/ontology/" />
+    <ns141:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:Living_people" xmlns:ns141="http://dbpedia.org/ontology/" />
+    <ns142:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Category:Olympic_canoeists_of_Italy" xmlns:ns142="http://dbpedia.org/ontology/" />
+    <ns143:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Italy" xmlns:ns143="http://dbpedia.org/ontology/" />
+    <ns144:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Rome" xmlns:ns144="http://dbpedia.org/ontology/" />
+    <ns145:description xml:lang="en" xmlns:ns145="http://purl.org/dc/terms/">Italian canoeist</ns145:description>
+    <ns146:subject rdf:resource="http://dbpedia.org/resource/Category:1937_births" xmlns:ns146="http://purl.org/dc/terms/" />
+    <ns147:subject rdf:resource="http://dbpedia.org/resource/Category:Canoeists_at_the_1960_Summer_Olympics" xmlns:ns147="http://purl.org/dc/terms/" />
+    <ns148:subject rdf:resource="http://dbpedia.org/resource/Category:Italian_male_canoeists" xmlns:ns148="http://purl.org/dc/terms/" />
+    <ns149:subject rdf:resource="http://dbpedia.org/resource/Category:Living_people" xmlns:ns149="http://purl.org/dc/terms/" />
+    <ns150:subject rdf:resource="http://dbpedia.org/resource/Category:Olympic_canoeists_of_Italy" xmlns:ns150="http://purl.org/dc/terms/" />
+    <ns151:hypernym rdf:resource="http://dbpedia.org/resource/Canoer" xmlns:ns151="http://purl.org/linguistics/gold/" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Boatman109861946" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Canoeist109891470" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/CausalAgent100007347" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/LivingThing100004258" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Organism100004475" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/PhysicalEntity100001930" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Whole100003553" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/WikicatCanoeistsAtThe1960SummerOlympics" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/WikicatItalianCanoeists" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/WikicatLivingPeople" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/WikicatOlympicCanoeistsOfItaly" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Worker109632518" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/YagoLegalActor" />
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/YagoLegalActorGeo" />
+    <rdf:type rdf:resource="http://dbpedia.org/ontology/Person" />
+    <rdfs:comment xml:lang="en">The Canoeist Danilo Tognon (born October 9, 1937) is an Italian sprint canoer who competed in the early 1960s. He was eliminated in the semifinals of the C-1 1000 m event at the 1960 Summer Olympics in Rome(the capital of Italy).</rdfs:comment>
+    <rdfs:comment xml:lang="it">Partecipò alle Olimpiadi di Roma del 1960 nel C1 1000 metri.</rdfs:comment>
+    <rdfs:label xml:lang="en">Danilo Tognon</rdfs:label>
+    <rdfs:label xml:lang="it">Danilo Tognon</rdfs:label>
+    <ns152:sameAs rdf:resource="http://it.dbpedia.org/resource/Danilo_Tognon" xmlns:ns152="http://www.w3.org/2002/07/owl#" />
+    <ns153:sameAs rdf:resource="http://rdf.freebase.com/ns/m.07k65_n" xmlns:ns153="http://www.w3.org/2002/07/owl#" />
+    <ns154:sameAs rdf:resource="http://wikidata.dbpedia.org/resource/Q5219638" xmlns:ns154="http://www.w3.org/2002/07/owl#" />
+    <ns155:sameAs rdf:resource="http://www.wikidata.org/entity/Q5219638" xmlns:ns155="http://www.w3.org/2002/07/owl#" />
+    <ns156:sameAs rdf:resource="http://yago-knowledge.org/resource/Danilo_Tognon" xmlns:ns156="http://www.w3.org/2002/07/owl#" />
+    <ns157:wasDerivedFrom rdf:resource="http://en.wikipedia.org/wiki/Danilo_Tognon?oldid=743258933" xmlns:ns157="http://www.w3.org/ns/prov#" />
+    <ns158:gender xml:lang="en" xmlns:ns158="http://xmlns.com/foaf/0.1/">male</ns158:gender>
+    <ns159:givenName xml:lang="en" xmlns:ns159="http://xmlns.com/foaf/0.1/">Danilo</ns159:givenName>
+    <ns160:isPrimaryTopicOf rdf:resource="http://en.wikipedia.org/wiki/Danilo_Tognon" xmlns:ns160="http://xmlns.com/foaf/0.1/" />
+    <ns161:name xml:lang="en" xmlns:ns161="http://xmlns.com/foaf/0.1/">Danilo Tognon</ns161:name>
+    <ns162:surname xml:lang="en" xmlns:ns162="http://xmlns.com/foaf/0.1/">Tognon</ns162:surname>
+  </ns0:Object100002684>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/England_national_under-21_football_team_results">
+    <ns163:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns163="http://dbpedia.org/ontology/" />
+    <ns164:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns164="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/List_of_association_football_international_referees">
+    <ns165:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns165="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Netherlands_national_under-17_football_team">
+    <ns166:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns166="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/PAOK_FC_in_European_football">
+    <ns167:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns167="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Portugal_national_under-17_football_team">
+    <ns168:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns168="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Republic_of_Ireland_national_football_team_2010s_results">
+    <ns169:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns169="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Swedish_Under-19_Football_Championships">
+    <ns170:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns170="http://dbpedia.org/ontology/" />
+    <ns171:referee rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns171="http://dbpedia.org/property/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Ukraine_national_under-21_football_team">
+    <ns172:wikiPageWikiLink rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns172="http://dbpedia.org/ontology/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://en.wikipedia.org/wiki/Andreas_Ekberg">
+    <ns173:primaryTopic rdf:resource="http://dbpedia.org/resource/Andreas_Ekberg" xmlns:ns173="http://xmlns.com/foaf/0.1/" />
+  </rdf:Description>
+  <rdf:Description rdf:about="http://en.wikipedia.org/wiki/Danilo_Tognon">
+    <ns174:primaryTopic rdf:resource="http://dbpedia.org/resource/Danilo_Tognon" xmlns:ns174="http://xmlns.com/foaf/0.1/" />
+  </rdf:Description>
+</rdf:RDF>

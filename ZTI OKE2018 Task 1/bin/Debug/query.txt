@@ -1,0 +1,9 @@
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbp: <http://dbpedia.org/resource/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT ?name where {
+   ?person foaf:name ?name .
+   ?band dbo:bandMember ?person .
+   ?band dbo:genre dbp:Punk_rock .
+   ?band foaf:name ?bandname
