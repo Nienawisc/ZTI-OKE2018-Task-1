@@ -270,7 +270,19 @@ namespace ZTI_OKE2018_Task_1
                      Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}",d.StartIndex,d.StopIndex,d.Text));
                      Console.WriteLine(string.Format("nif:reference:{0}", d.InDBpedia?d.DBpediaREF1:"No in DBpedia" ));
                  }
-             }
+                Console.WriteLine("Location:");
+                foreach (var d in data.Location)
+                {
+                    Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}", d.StartIndex, d.StopIndex, d.Text));
+                    Console.WriteLine(string.Format("nif:reference:{0}", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
+                }
+                Console.WriteLine("Organization:");
+                foreach (var d in data.Organization)
+                {
+                    Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}", d.StartIndex, d.StopIndex, d.Text));
+                    Console.WriteLine(string.Format("nif:reference:{0}", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
+                }
+            }
 
             Console.WriteLine("Query took " + query.QueryExecutionTime + " milliseconds\n");
         }
@@ -299,6 +311,18 @@ namespace ZTI_OKE2018_Task_1
             {
                 outputTextBox.Text+=string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
                 outputTextBox.Text+=(string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
+            }
+            outputTextBox.Text += "Location:\n";
+            foreach (var d in inputData.Location)
+            {
+                outputTextBox.Text += string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
+                outputTextBox.Text += (string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
+            }
+            outputTextBox.Text += "Organization:\n";
+            foreach (var d in inputData.Organization)
+            {
+                outputTextBox.Text += string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
+                outputTextBox.Text += (string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
             }
         }
     }
