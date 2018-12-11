@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using edu.stanford.nlp.ie.crf;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
@@ -16,36 +18,32 @@ namespace ZTI_OKE2018_Task_1
 			InitializeComponent();
 		}
 
+		private CRFClassifier Classifier { get; set; }
+
 		private void button1_Click(object sender, EventArgs e)
 		{
 			IGraph g = new Graph();
 
 			//Load using a Filename
-			new TurtleParser().Load(g, @"D:\!MEGA\!Studia\Semestr 7\ZTI\oke17task1TrainingSmall.ttl");
+			new TurtleParser().Load(g, "oke17task1Training.xml.ttl");
 
-			var triples = g.Triples.Where(q => q.Predicate.ToString().ToLower().Contains("isString".ToLower()))
-				.GroupBy(q => q.Object).Select(q => q.First());
+			var triples = g.Triples.Where(q => q.Predicate.ToString().ToLower().Contains("isString".ToLower())).GroupBy(q => q.Object).Select(q => q.First());
 
-			#region LINQ
 
-			/*
-			 * Orginał LINQ poniżej
-			 *
-				foreach (var t in Triples)
-				{
-					var match = new Regex("char=([0-9]+),([0-9]+)").Match(t.Subject.ToString());
-					if (!match.Success) continue;
+			/* Orginal from LINQ below
+			foreach (var t in triples)
+			{
+				var match = new Regex("char=([0-9]+),([0-9]+)").Match(t.Subject.ToString());
+				if (!match.Success) continue;
 
-					var startIndex = 0;
-					var stopIndex = int.Parse(match.Groups[2].Value);
+				var startIndex = 0;
+				var stopIndex = int.Parse(match.Groups[2].Value);
 
-					var newData = new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex));
-					dataSet.Add(newData);
-				}
-			 *
+				var newData = new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), Classifier);
+
+				dataSet.Add(newData);
+			}
 			 */
-
-			#endregion LINQ
 
 			var dataSet = (
 				from t
@@ -54,28 +52,28 @@ namespace ZTI_OKE2018_Task_1
 				where match.Success
 				let startIndex = 0
 				let stopIndex = int.Parse(match.Groups[2].Value)
-				select new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex))).ToList();
+				select new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), Classifier)
+			).ToList();
 
-			#region DebugPersons
 
 			foreach (var data in dataSet)
 			{
-				var Persons = data.GetListOf(Data.OntologyClasses.Person);
-
-				foreach (var d in Persons)
+				foreach (var oc in (OntologyClasses[]) Enum.GetValues(typeof(OntologyClasses)))
 				{
-					Console.WriteLine($@"nif:beginIndex:{d.StartIndex}, nif:endIndex :{d.StopIndex}, nif:isString:{d.Text}");
+					data.findIndex(oc);
+					foreach (var d in data.Person)
+						Console.WriteLine(@"nif:beginIndex:{0},nif:endIndex :{1}nif:isString:{2}", d.StartIndex, d.StopIndex, d.Text);
 				}
+
 			}
 
-			#endregion DebugPersons
+			#region SparQL
 
 			var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
 
-
 			var find = inputTextBox.Text;
 
-			foreach (var c in (Data.OntologyClasses[])Enum.GetValues(typeof(Data.OntologyClasses)))
+			foreach (var c in (OntologyClasses[]) Enum.GetValues(typeof(OntologyClasses)))
 			{
 				var query = Extensions.CreateQuery(find, c, 5);
 				var graph = endpoint.QueryWithResultSet(query);
@@ -93,14 +91,68 @@ namespace ZTI_OKE2018_Task_1
 					//Debug
 					MessageBox.Show(query, @"Couldn't find anything matching to query:");
 				}
-
 			}
 
-			var rdfxmlwriter = new RdfXmlWriter();
+			#endregion SparQL
 
-			//rdfxmlwriter.Save(dbpGraph, Console.Out); // view test result details for output.
-			//rdfxmlwriter.Save(dbpGraph, "output.rdf");
-			// ------------------------------------------------------------------------------
+			#region RdfXmlWrite
+
+			new RdfXmlWriter().Save(g, "output.rdf");
+
+			#endregion RdfXmlWrite
+
+			Console.ReadLine();
 		}
+
+		private void GetJarLocation(object sender, MouseEventArgs e)
+		{
+			switch (e.Button)
+			{
+				case MouseButtons.Right:
+				{
+					using (var ofd = new OpenFileDialog
+					{
+						InitialDirectory = @"C:\",
+						Title = "Browse stanford file",
+
+						CheckFileExists = true,
+						CheckPathExists = true,
+
+						DefaultExt = "gz",
+						Filter = "gz files (*.zg)|*.gz|All files (*.*)|*.*",
+						FilterIndex = 2,
+						RestoreDirectory = true,
+
+						ReadOnlyChecked = true,
+						ShowReadOnly = true
+					})
+					{
+						if (ofd.ShowDialog() == DialogResult.OK)
+							Classifier = CRFClassifier.getClassifierNoExceptions(ofd.FileName);
+					}
+				}
+					break;
+
+				case MouseButtons.Left:
+					break;
+
+				case MouseButtons.None:
+					break;
+
+				case MouseButtons.Middle:
+					break;
+
+				case MouseButtons.XButton1:
+					break;
+
+				case MouseButtons.XButton2:
+					break;
+
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+		}
+
+
 	}
 }

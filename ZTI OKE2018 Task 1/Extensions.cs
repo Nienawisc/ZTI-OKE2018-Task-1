@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using edu.stanford.nlp.ie.crf;
 
 namespace ZTI_OKE2018_Task_1
 {
 	public static class Extensions
 	{
-		public static string CreateQuery(string word, Data.OntologyClasses oClass, int limit = 1)
+		public static string CreateQuery(string word, OntologyClasses oClass, int limit = 1)
 		{
 			return (
 				"Select ?name " +
@@ -22,6 +23,11 @@ namespace ZTI_OKE2018_Task_1
 				"FILTER (?name=\"" + word + "\"@en).} " +
 				"LIMIT " + limit
 			);
+		}
+
+		public static string GetNerText(CRFClassifier crfClassifier, string text)
+		{
+			return crfClassifier.classifyWithInlineXML(text);
 		}
 	}
 }

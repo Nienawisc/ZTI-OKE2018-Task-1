@@ -2,19 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using edu.stanford.nlp.ie.crf;
 using VDS.RDF.Query;
 
 namespace ZTI_OKE2018_Task_1
 {
-	public class Data
+	public partial class Data
 	{
-		public enum OntologyClasses
-		{
-			Person,
-			Place,
-			Organisation
-		}
-
 		public Data(int startIndex, int stopIndex, string text)
 		{
 			StartIndex = startIndex;
@@ -22,11 +16,21 @@ namespace ZTI_OKE2018_Task_1
 			Text = text ?? throw new ArgumentNullException(nameof(text));
 		}
 
+		public Data(int startIndex, int stopIndex, string text, CRFClassifier crfClassifier) : this(startIndex,
+			stopIndex, text)
+		{
+			CrfClassifier = crfClassifier ?? throw new ArgumentNullException(nameof(crfClassifier));
+		}
+
+		public List<Triplet> Person { get; } = new List<Triplet>();
+
 		internal int StartIndex { get; }
 
 		internal int StopIndex { get; }
 
 		internal string Text { get; }
+
+		internal CRFClassifier CrfClassifier { get; }
 
 		private MatchCollection FindByRegex(string pattern)
 		{
@@ -39,7 +43,7 @@ namespace ZTI_OKE2018_Task_1
 
 			var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
 
-			var persons = new List<Data>();
+			var list = new List<Data>();
 
 			foreach (Match m in matches)
 			{
@@ -49,10 +53,43 @@ namespace ZTI_OKE2018_Task_1
 				var dbpGraph = endpoint.QueryWithResultSet(Extensions.CreateQuery(find, oClass));
 				if (dbpGraph.Results.Count <= 0) continue;
 
-				persons.Add(new Data(m.Index, m.Index + find.Length, dbpGraph.Results.First()[1].ToString()));
+				list.Add(new Data(m.Index, m.Index + find.Length, dbpGraph.Results.First()[1].ToString()));
 			}
 
-			return persons;
+			return list;
+		}
+
+		//TODO: Rename
+		public void findIndex(OntologyClasses oc)
+		{
+			var tagOpen = "<" + oc.ToString().ToUpper() + ">";
+			var tagClose = "</" + oc.ToString().ToUpper() + ">";
+
+			var i = 0;
+			var j = 0;
+			var count = 0;
+
+			//TODO: Dokończyć, occurrences = ilość występowania tagu PERSON/PLACE/ORGANISATION w tekście
+			var occurrences = 0;
+
+			var nerText = Extensions.GetNerText(CrfClassifier, Text);
+
+			while (count < occurrences)
+			{
+				var posA = nerText.IndexOf(tagOpen, i, StringComparison.Ordinal);
+				var posB = nerText.IndexOf(tagClose, j, StringComparison.Ordinal);
+				var adjustedPosA = posA + tagOpen.Length;
+				var nazwa = string.Empty;
+
+				if (posA < 0 || posB < 0) continue;
+
+				i = posA + tagOpen.Length;
+				j = posB + tagClose.Length;
+				nazwa = nerText.Substring(adjustedPosA, posB - adjustedPosA);
+				var t = new Triplet(nazwa, Text.IndexOf(nazwa, StringComparison.Ordinal), Text.IndexOf(nazwa, StringComparison.Ordinal) + nazwa.Length - 1);
+				Console.WriteLine(t.ToString());
+				count += 1;
+			}
 		}
 	}
 }
