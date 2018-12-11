@@ -15,22 +15,83 @@ using VDS.RDF.Query;
 using VDS.RDF.Query.Datasets;
 using VDS.RDF.Writing;
 using VDS.RDF.Writing.Formatting;
+using edu.stanford.nlp.ie.crf;
+using Console = System.Console;
 
 namespace ZTI_OKE2018_Task_1
 {
     public partial class Form1 : Form
     {
+        struct properties
+        {
+            int startIndex, stopIndex;
+            string text;
+
+            public string Text { get => text; set => text = value; }
+            public int StopIndex { get => stopIndex; set => stopIndex = value; }
+            public int StartIndex { get => startIndex; set => startIndex = value; }
+        }
+
         class Data
         {
             int startIndex, stopIndex;
             string text;
-            public List<Data> Person = new List<Data>();
+            string nerText;
+            public List<properties> Person = new List<properties>();
+            public List<properties> Location = new List<properties>();
+            public List<properties> Organisation = new List<properties>();
+
+            // Loading 3 class classifier model
+            CRFClassifier classifier;
 
             public int StartIndex { get => startIndex; set => startIndex = value; }
             public int StopIndex { get => stopIndex; set => stopIndex = value; }
             public string Text { get => text; set => text = value; }
 
-            public void findPersons()
+            public Data(CRFClassifier c)
+            {
+                classifier =c;
+            }
+
+            public void findNer()
+            {
+                Console.WriteLine("{0}\n", classifier.classifyWithInlineXML(Text));
+                nerText = classifier.classifyWithInlineXML(Text);
+            }
+
+            public void findIndex()
+            {
+                String text1 = "<PERSON>";
+                String text2 = "</PERSON>";
+
+                int i = 0;
+                int j = 0;
+                int count = 0;
+
+                //DOKOŃCZYC, occurrences = ilość występowania tagu PERSON w tekście
+                int occurrences = 0;
+
+                while (count<occurrences)
+                {
+                    int posA = nerText.IndexOf(text1,i);
+                    int posB = nerText.IndexOf(text2,j);
+                    int adjustedPosA = posA + text1.Length;
+                    String nazwa = "";
+
+                    if (posA >= 0 && posB >= 0)
+                    {
+                        i = posA+text1.Length;
+                        j = posB+text2.Length;
+                        nazwa = nerText.Substring(adjustedPosA, posB - adjustedPosA);
+                        Console.WriteLine(nazwa);
+                        Console.WriteLine(text.IndexOf(nazwa));
+                        Console.WriteLine((text.IndexOf(nazwa) + nazwa.Length - 1));
+                        count += 1;
+                    }
+                }
+            } 
+
+           /* public void findPersons()
             {
                 string pattern = "([A-Z][a-z]+ )+";
                 Regex regex = new Regex(pattern);
@@ -58,7 +119,7 @@ namespace ZTI_OKE2018_Task_1
                         Person.Add(newPersonData);
                     }
                 }
-            }
+            }*/
         };
         public Form1()
         {
@@ -67,6 +128,12 @@ namespace ZTI_OKE2018_Task_1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Path to the folder with classifiers models
+            String jarRoot = @"C:\Users\G\Downloads\stanford-ner-2016-10-31";
+            String classifiersDirecrory;
+            classifiersDirecrory = jarRoot + @"\classifiers";
+            CRFClassifier classifier= CRFClassifier.getClassifierNoExceptions(classifiersDirecrory + @"\english.all.3class.distsim.crf.ser.gz");
+
             IGraph g = new Graph();
 
             //Load using a Filename
@@ -94,7 +161,6 @@ namespace ZTI_OKE2018_Task_1
 
             List<Data> dataSet = new List<Data>();
 
-
             foreach (var t in Triples)
             {
                 //Console.WriteLine(t.ToString(formatter));
@@ -103,21 +169,22 @@ namespace ZTI_OKE2018_Task_1
                 Match match = regex.Match(t.Subject.ToString());
                 if (match.Success)
                 {
-                    Data newData = new Data();
+                    Data newData = new Data(classifier);
                     newData.StartIndex = 0;
                     newData.StopIndex= Int32.Parse(match.Groups[2].Value);
                     newData.Text = t.Object.ToString().Substring(newData.StartIndex, newData.StopIndex);
                     dataSet.Add(newData);
                 }
             }
-            foreach(var data in dataSet)
-            {
-                data.findPersons();
-                foreach(var d in data.Person)
-                {
-                    Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}",d.StartIndex,d.StopIndex,d.Text));
-                }
-            }
+             foreach(var data in dataSet)
+             {
+                 data.findNer();
+                 data.findIndex();
+                foreach (var d in data.Person)
+                 {
+                     Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}",d.StartIndex,d.StopIndex,d.Text));
+                 }
+             }
 
             Console.WriteLine("Query took " + query.QueryExecutionTime + " milliseconds\n");
 
@@ -136,12 +203,9 @@ namespace ZTI_OKE2018_Task_1
                 var result = dbpGraph.Results.First().ToString();
                 Console.WriteLine("finded in dbpedia:");
                 Console.WriteLine(result);
-                //outputTextBox.Text = "finded in dbpedia:\n";
-                //outputTextBox.Text += result;
             }
             else
                 Console.WriteLine("\ncouldnt find\n");
-                //outputTextBox.Text = "couldnt find";
 
             var query3 = "Select ?name ?place WHERE {?place a <http://dbpedia.org/ontology/Place>. ?place foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
 
@@ -152,12 +216,9 @@ namespace ZTI_OKE2018_Task_1
                 var result2 = dbpGraph2.Results.First().ToString();
                 Console.WriteLine("finded in dbpedia:");
                 Console.WriteLine(result2);
-                //outputTextBox.Text += "\nfinded in dbpedia:\n";
-                //outputTextBox.Text += result2;
             }
             else
                 Console.WriteLine("\ncouldnt find\n");
-                //outputTextBox.Text += "\ncouldnt find";
                 
             var query4 = "Select ?name ?organisation WHERE {?organisation a<http://dbpedia.org/ontology/Organisation>. ?organisation foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
 
@@ -168,12 +229,9 @@ namespace ZTI_OKE2018_Task_1
                 var result3 = dbpGraph3.Results.First().ToString();
                 Console.WriteLine("finded in dbpedia:");
                 Console.WriteLine(result3);
-                //outputTextBox.Text += "\nfinded in dbpedia:\n";
-                //outputTextBox.Text += result3;
             }
             else
                 Console.WriteLine("\ncouldnt find\n");
-                //outputTextBox.Text += "\ncouldnt find";
 
             RdfXmlWriter rdfxmlwriter = new RdfXmlWriter();
             //rdfxmlwriter.Save(dbpGraph, Console.Out); // view test result details for output.

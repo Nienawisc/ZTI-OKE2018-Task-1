@@ -35,26 +35,29 @@
             // 
             // inputTextBox
             // 
-            this.inputTextBox.Location = new System.Drawing.Point(12, 12);
+            this.inputTextBox.Location = new System.Drawing.Point(9, 10);
+            this.inputTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.inputTextBox.Name = "inputTextBox";
-            this.inputTextBox.Size = new System.Drawing.Size(472, 153);
+            this.inputTextBox.Size = new System.Drawing.Size(355, 125);
             this.inputTextBox.TabIndex = 0;
             this.inputTextBox.Text = "";
             // 
             // outputTextBox
             // 
-            this.outputTextBox.Location = new System.Drawing.Point(12, 186);
+            this.outputTextBox.Location = new System.Drawing.Point(9, 151);
+            this.outputTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
-            this.outputTextBox.Size = new System.Drawing.Size(472, 363);
+            this.outputTextBox.Size = new System.Drawing.Size(355, 296);
             this.outputTextBox.TabIndex = 1;
             this.outputTextBox.Text = "";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 555);
+            this.button1.Location = new System.Drawing.Point(9, 451);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 36);
+            this.button1.Size = new System.Drawing.Size(66, 29);
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,12 +65,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 596);
+            this.ClientSize = new System.Drawing.Size(374, 484);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.inputTextBox);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
