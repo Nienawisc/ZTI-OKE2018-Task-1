@@ -22,14 +22,29 @@ namespace ZTI_OKE2018_Task_1
 {
     public partial class Form1 : Form
     {
-        struct properties
+        class properties
         {
             int startIndex, stopIndex;
             string text;
+            string DBpediaREF;
+            bool inDBpedia;
+            
+            public properties()
+            {
+                inDBpedia = false;
+            }
+
+            public void setDBpediaREF(string dbref)
+            {
+                DBpediaREF = dbref;
+                inDBpedia = true;
+            }
 
             public string Text { get => text; set => text = value; }
             public int StopIndex { get => stopIndex; set => stopIndex = value; }
             public int StartIndex { get => startIndex; set => startIndex = value; }
+            public bool InDBpedia { get => inDBpedia; set => inDBpedia = value; }
+            public string DBpediaREF1 { get => DBpediaREF; set => DBpediaREF = value; }
         }
 
         class Data
@@ -39,7 +54,7 @@ namespace ZTI_OKE2018_Task_1
             string nerText;
             public List<properties> Person = new List<properties>();
             public List<properties> Location = new List<properties>();
-            public List<properties> Organisation = new List<properties>();
+            public List<properties> Organization = new List<properties>();
 
             // Loading 3 class classifier model
             CRFClassifier classifier;
@@ -59,17 +74,28 @@ namespace ZTI_OKE2018_Task_1
                 nerText = classifier.classifyWithInlineXML(Text);
             }
 
-            public void findIndex()
+            public int CountStringOccurrences(string text, string pattern)
             {
-                String text1 = "<PERSON>";
-                String text2 = "</PERSON>";
+                // Loop through all instances of the string 'text'.
+                int count = 0;
+                int i = 0;
+                while ((i = text.IndexOf(pattern, i)) != -1)
+                {
+                    i += pattern.Length;
+                    count++;
+                }
+                return count;
+            }
 
+            public void findIndex(String text1, String text2)
+            {
                 int i = 0;
                 int j = 0;
+                int k = 0;
+
                 int count = 0;
 
-                //DOKOŃCZYC, occurrences = ilość występowania tagu PERSON w tekście
-                int occurrences = 0;
+                int occurrences = CountStringOccurrences(nerText, text1);
 
                 while (count<occurrences)
                 {
@@ -83,14 +109,69 @@ namespace ZTI_OKE2018_Task_1
                         i = posA+text1.Length;
                         j = posB+text2.Length;
                         nazwa = nerText.Substring(adjustedPosA, posB - adjustedPosA);
-                        Console.WriteLine(nazwa);
-                        Console.WriteLine(text.IndexOf(nazwa));
-                        Console.WriteLine((text.IndexOf(nazwa) + nazwa.Length - 1));
                         count += 1;
+                        properties newprop = new properties();
+                        newprop.Text = nazwa;
+                        newprop.StartIndex = text.IndexOf(nazwa, k);
+                        newprop.StopIndex = (text.IndexOf(nazwa, k) + nazwa.Length - 1);
+                        k = text.IndexOf(nazwa, k) + nazwa.Length;
+
+                        if (text1 == "<PERSON>") Person.Add(newprop);
+                        if (text1 == "<LOCATION>") Location.Add(newprop);
+                        if (text1 == "<ORGANIZATION>") Organization.Add(newprop);
                     }
                 }
-            } 
+            }
 
+            public void askdb()
+            {
+                SparqlRemoteEndpoint endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
+
+                //Console.WriteLine(m.ToString());
+                foreach(var p in Person)
+                {
+                    string find = p.Text;
+
+                    // Ask DBPedia to describe the first thing it finds which is a Person
+                    var query2 = "Select ?name ?person WHERE {?person a <http://dbpedia.org/ontology/Person>. ?person foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 1";
+
+                    //Get the result
+                    var dbpGraph = endpoint.QueryWithResultSet(query2);
+                    if (dbpGraph.Results.Count > 0)
+                    {
+                        p.setDBpediaREF(dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
+                    }
+                }
+                foreach (var p in Location)
+                {
+                    string find = p.Text;
+
+                    // Ask DBPedia to describe the first thing it finds which is a Person
+                    var query2 = "Select ?name ?place WHERE {?place a <http://dbpedia.org/ontology/Place>. ?place foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
+
+                    //Get the result
+                    var dbpGraph = endpoint.QueryWithResultSet(query2);
+                    if (dbpGraph.Results.Count > 0)
+                    {
+                        p.setDBpediaREF(dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
+                    }
+                }
+                foreach (var p in Organization)
+                {
+                    string find = p.Text;
+
+                    // Ask DBPedia to describe the first thing it finds which is a Person
+                    var query2 = "Select ?name ?organisation WHERE {?organisation a<http://dbpedia.org/ontology/Organisation>. ?organisation foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
+
+                    //Get the result
+                    var dbpGraph = endpoint.QueryWithResultSet(query2);
+                    if (dbpGraph.Results.Count > 0)
+                    {
+                        p.setDBpediaREF(dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
+                    }
+                }
+            }
+           
            /* public void findPersons()
             {
                 string pattern = "([A-Z][a-z]+ )+";
@@ -179,66 +260,46 @@ namespace ZTI_OKE2018_Task_1
              foreach(var data in dataSet)
              {
                  data.findNer();
-                 data.findIndex();
+                 data.findIndex("<PERSON>","</PERSON>");
+                 data.findIndex("<LOCATION>", "</LOCATION>");
+                 data.findIndex("<ORGANIZATION>", "</ORGANIZATION>");
+                 data.askdb();
+                Console.WriteLine("Person:");
                 foreach (var d in data.Person)
                  {
                      Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}",d.StartIndex,d.StopIndex,d.Text));
+                     Console.WriteLine(string.Format("nif:reference:{0}", d.InDBpedia?d.DBpediaREF1:"No in DBpedia" ));
                  }
              }
 
             Console.WriteLine("Query took " + query.QueryExecutionTime + " milliseconds\n");
+        }
 
-            // ------------------------------------------------------------------------------
-            SparqlRemoteEndpoint endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Path to the folder with classifiers models
+            String jarRoot = @"C:\Users\G\Downloads\stanford-ner-2016-10-31";
+            String classifiersDirecrory;
+            classifiersDirecrory = jarRoot + @"\classifiers";
+            CRFClassifier classifier = CRFClassifier.getClassifierNoExceptions(classifiersDirecrory + @"\english.all.3class.distsim.crf.ser.gz");
+            Data inputData = new Data(classifier);
 
-            string find = inputTextBox.Text;
+            inputData.Text = inputTextBox.Text;
+            inputData.StartIndex = 0;
+            inputData.StopIndex = inputTextBox.Text.Length-1;
 
-            // Ask DBPedia to describe the first thing it finds which is a Person
-            var query2 = "Select ?name ?person WHERE {?person a <http://dbpedia.org/ontology/Person>. ?person foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 1";
+            inputData.findNer();
+            inputData.findIndex("<PERSON>", "</PERSON>");
+            inputData.findIndex("<LOCATION>", "</LOCATION>");
+            inputData.findIndex("<ORGANIZATION>", "</ORGANIZATION>");
+            inputData.askdb();
 
-            //Get the result
-            var dbpGraph = endpoint.QueryWithResultSet(query2);
-            if (dbpGraph.Results.Count > 0)
+            outputTextBox.Text="Person:\n";
+            foreach (var d in inputData.Person)
             {
-                var result = dbpGraph.Results.First().ToString();
-                Console.WriteLine("finded in dbpedia:");
-                Console.WriteLine(result);
+                outputTextBox.Text+=string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
+                outputTextBox.Text+=(string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
             }
-            else
-                Console.WriteLine("\ncouldnt find\n");
-
-            var query3 = "Select ?name ?place WHERE {?place a <http://dbpedia.org/ontology/Place>. ?place foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
-
-            //Get the result
-            var dbpGraph2 = endpoint.QueryWithResultSet(query3);
-            if (dbpGraph2.Results.Count > 0)
-            {
-                var result2 = dbpGraph2.Results.First().ToString();
-                Console.WriteLine("finded in dbpedia:");
-                Console.WriteLine(result2);
-            }
-            else
-                Console.WriteLine("\ncouldnt find\n");
-                
-            var query4 = "Select ?name ?organisation WHERE {?organisation a<http://dbpedia.org/ontology/Organisation>. ?organisation foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
-
-            //Get the result
-            var dbpGraph3 = endpoint.QueryWithResultSet(query4);
-            if (dbpGraph3.Results.Count > 0)
-            {
-                var result3 = dbpGraph3.Results.First().ToString();
-                Console.WriteLine("finded in dbpedia:");
-                Console.WriteLine(result3);
-            }
-            else
-                Console.WriteLine("\ncouldnt find\n");
-
-            RdfXmlWriter rdfxmlwriter = new RdfXmlWriter();
-            //rdfxmlwriter.Save(dbpGraph, Console.Out); // view test result details for output.
-            //rdfxmlwriter.Save(dbpGraph, "output.rdf");
-            // ------------------------------------------------------------------------------
-
-            Console.ReadLine();
         }
     }
 }
