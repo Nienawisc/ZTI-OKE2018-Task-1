@@ -22,7 +22,7 @@ namespace ZTI_OKE2018_Task_1
 			CrfClassifier = crfClassifier ?? throw new ArgumentNullException(nameof(crfClassifier));
 		}
 
-		public List<Triplet> Person { get; } = new List<Triplet>();
+		public List<DataProperties> Person { get; } = new List<DataProperties>();
 
 		internal int StartIndex { get; }
 
@@ -59,37 +59,46 @@ namespace ZTI_OKE2018_Task_1
 			return list;
 		}
 
-		//TODO: Rename
-		public void findIndex(OntologyClasses oc)
+		public IEnumerable<DataProperties> GetOntologyEntries(NerClasses nc)
 		{
-			var tagOpen = "<" + oc.ToString().ToUpper() + ">";
-			var tagClose = "</" + oc.ToString().ToUpper() + ">";
+			var output = new List<DataProperties>();
+
+			var tagOpen = "<" + nc + ">";
+			var tagClose = "</" + nc + ">";
 
 			var i = 0;
 			var j = 0;
+			var k = 0;
 			var count = 0;
 
-			//TODO: Dokończyć, occurrences = ilość występowania tagu PERSON/PLACE/ORGANISATION w tekście
-			var occurrences = 0;
-
 			var nerText = Extensions.GetNerText(CrfClassifier, Text);
+
+			var occurrences = Extensions.CountStringOccurrences(nerText, tagOpen);
 
 			while (count < occurrences)
 			{
 				var posA = nerText.IndexOf(tagOpen, i, StringComparison.Ordinal);
 				var posB = nerText.IndexOf(tagClose, j, StringComparison.Ordinal);
+
 				var adjustedPosA = posA + tagOpen.Length;
+
 				var nazwa = string.Empty;
 
 				if (posA < 0 || posB < 0) continue;
 
 				i = posA + tagOpen.Length;
 				j = posB + tagClose.Length;
+
 				nazwa = nerText.Substring(adjustedPosA, posB - adjustedPosA);
-				var t = new Triplet(nazwa, Text.IndexOf(nazwa, StringComparison.Ordinal), Text.IndexOf(nazwa, StringComparison.Ordinal) + nazwa.Length - 1);
-				Console.WriteLine(t.ToString());
+				
+				var t = new DataProperties(nazwa, Text.IndexOf(nazwa, k, StringComparison.Ordinal), (Text.IndexOf(nazwa, k, StringComparison.Ordinal) + nazwa.Length - 1));
+				output.Add(t);
+				
+				k = Text.IndexOf(nazwa, k, StringComparison.Ordinal) + nazwa.Length;
 				count += 1;
 			}
+
+			return output;
 		}
 	}
 }

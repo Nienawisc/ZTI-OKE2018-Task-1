@@ -55,15 +55,42 @@ namespace ZTI_OKE2018_Task_1
 				select new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), Classifier)
 			).ToList();
 
+			var persons = new List<Data.DataProperties>();
+			var locations = new List<Data.DataProperties>();
+			var organisations = new List<Data.DataProperties>();
 
 			foreach (var data in dataSet)
 			{
-				foreach (var oc in (OntologyClasses[]) Enum.GetValues(typeof(OntologyClasses)))
+				persons =  persons.Concat(data.GetOntologyEntries(NerClasses.PERSON).ToList()).ToList();
+				locations = locations.Concat(data.GetOntologyEntries(NerClasses.LOCATION).ToList()).ToList();
+				organisations = organisations.Concat(data.GetOntologyEntries(NerClasses.ORGANIZATION).ToList()).ToList();
+
+				Extensions.AskDB(new List<List<Data.DataProperties>> { persons, locations, organisations });
+
+				#region Debug
+
+				Console.WriteLine("Person:");
+				foreach (var d in persons)
 				{
-					data.findIndex(oc);
-					foreach (var d in data.Person)
-						Console.WriteLine(@"nif:beginIndex:{0},nif:endIndex :{1}nif:isString:{2}", d.StartIndex, d.StopIndex, d.Text);
+					Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
+					Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
 				}
+
+				Console.WriteLine("Location:");
+				foreach (var d in locations)
+				{
+					Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
+					Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
+				}
+
+				Console.WriteLine("Organization:");
+				foreach (var d in organisations)
+				{
+					Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
+					Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
+				}
+
+				#endregion
 
 			}
 
@@ -153,6 +180,9 @@ namespace ZTI_OKE2018_Task_1
 			}
 		}
 
-
+		private void button2_Click(object sender, EventArgs e)
+		{
+			
+		}
 	}
 }
