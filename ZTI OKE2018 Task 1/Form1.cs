@@ -65,34 +65,57 @@ namespace ZTI_OKE2018_Task_1
 				locations = locations.Concat(data.GetOntologyEntries(NerClasses.LOCATION).ToList()).ToList();
 				organisations = organisations.Concat(data.GetOntologyEntries(NerClasses.ORGANIZATION).ToList()).ToList();
 
-				Extensions.AskDB(new List<List<Data.DataProperties>> { persons, locations, organisations });
-
-				#region Debug
-
-				Console.WriteLine("Person:");
-				foreach (var d in persons)
-				{
-					Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
-					Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
-				}
-
-				Console.WriteLine("Location:");
-				foreach (var d in locations)
-				{
-					Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
-					Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
-				}
-
-				Console.WriteLine("Organization:");
-				foreach (var d in organisations)
-				{
-					Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
-					Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
-				}
-
-				#endregion
-
 			}
+
+			Extensions.AskDB(new List<List<Data.DataProperties>> { persons, locations, organisations });
+
+			#region Debug
+
+			//Console.WriteLine("Person:");
+			//foreach (var d in persons)
+			//{
+			//	Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
+			//	Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
+			//}
+
+			//Console.WriteLine("Location:");
+			//foreach (var d in locations)
+			//{
+			//	Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
+			//	Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
+			//}
+
+			//Console.WriteLine("Organization:");
+			//foreach (var d in organisations)
+			//{
+			//	Console.WriteLine($@"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}");
+			//	Console.WriteLine($@"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}");
+			//}
+
+			#endregion
+
+			#region Debug
+
+			outputTextBox.Text = "Person:\n";
+			foreach (var d in persons)
+			{
+				outputTextBox.Text += string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
+				outputTextBox.Text += (string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF : "No in DBpedia"));
+			}
+			outputTextBox.Text += "Location:\n";
+			foreach (var d in locations)
+			{
+				outputTextBox.Text += string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
+				outputTextBox.Text += (string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF : "No in DBpedia"));
+			}
+			outputTextBox.Text += "Organization:\n";
+			foreach (var d in organisations)
+			{
+				outputTextBox.Text += string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
+				outputTextBox.Text += (string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF : "No in DBpedia"));
+			}
+
+			#endregion
 
 			#region SparQL
 

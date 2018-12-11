@@ -49,17 +49,30 @@ namespace ZTI_OKE2018_Task_1
 		{
 			var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
 
-			//Person, location, organization
-			for (var index = 0; index < world.Count; index++)
+			foreach (var devil in world[0])
 			{
-				var god = world[index];
-				foreach (var devil in god)
+				var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)0));
+				if (dbpGraph.Results.Count > 0)
 				{
-					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)index));
-					if (dbpGraph.Results.Count > 0)
-					{
-						devil.DBpediaREF = (dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
-					}
+					devil.DBpediaREF = (dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
+				}
+			}
+
+			foreach (var devil in world[1])
+			{
+				var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)1));
+				if (dbpGraph.Results.Count > 0)
+				{
+					devil.DBpediaREF = (dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
+				}
+			}
+
+			foreach (var devil in world[2])
+			{
+				var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)2));
+				if (dbpGraph.Results.Count > 0)
+				{
+					devil.DBpediaREF = (dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
 				}
 			}
 
