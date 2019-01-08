@@ -24,7 +24,7 @@ namespace ZTI_OKE2018_Task_1
 		private CRFClassifier Classifier { get; set; }
 		private string InputFilePath { get; set; }
 		private bool IsSparQL { get; set; }
-		private bool IsDebug { get; set; } = false;
+		private bool IsDebug { get; set; }
 
 		private void button1_Click(object sender, EventArgs e)
 		{
@@ -40,13 +40,9 @@ namespace ZTI_OKE2018_Task_1
 					if (!IsDebug) continue;
 
 					if (graph.Results.Count > 0)
-					{
 						outputTextBox.Text += @"Found in dbpedia: " + graph.Results.First() + Environment.NewLine + Environment.NewLine;
-					}
 					else
-					{
 						outputTextBox.Text += @"Couldn't find anything matching to query: " + query + Environment.NewLine + Environment.NewLine;
-					}
 
 					outputTextBox.Text += Environment.NewLine;
 				}
@@ -78,7 +74,7 @@ namespace ZTI_OKE2018_Task_1
 			}
 			 */
 
-			#endregion
+			#endregion LINQ
 
 			var dataSet = (
 				from t
@@ -105,7 +101,6 @@ namespace ZTI_OKE2018_Task_1
 
 			Extensions.AskDB(output);
 
-
 			#region Debug
 
 			for (var index = 0; index < output.Count; index++)
@@ -115,12 +110,15 @@ namespace ZTI_OKE2018_Task_1
 					case 0:
 						outputTextBox.Text += "Person:" + Environment.NewLine;
 						break;
+
 					case 1:
 						outputTextBox.Text += "Location:" + Environment.NewLine;
 						break;
+
 					case 2:
 						outputTextBox.Text += "Organization:" + Environment.NewLine;
 						break;
+
 					default:
 						outputTextBox.Text += Environment.NewLine;
 						break;
@@ -145,14 +143,13 @@ namespace ZTI_OKE2018_Task_1
 
 			#endregion RdfXmlWrite
 
-			MessageBox.Show("OK\r\n\r\nWyniki możesz podejrzeć naciskając guzik 'SparQL', następnie 'Debug'.","Zakończono działanie.");
-
+			MessageBox.Show("OK\r\n\r\nWyniki możesz podejrzeć naciskając guzik 'SparQL', następnie 'Debug'.", "Zakończono działanie.");
 		}
 
 		private void JarFileLocation_Click(object sender, EventArgs e)
 		{
 			var c = Extensions.OFD("gz files (*.gz)|*.gz|All files (*.*)|*.*");
-			if(c == string.Empty) return;
+			if (c == string.Empty) return;
 			Classifier = CRFClassifier.getClassifierNoExceptions(c);
 			Stanford.Text = c;
 		}
