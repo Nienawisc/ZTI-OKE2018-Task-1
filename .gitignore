@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+.vs/ZTI OKE2018 Task 1/v15/Server/sqlite3/storage.ide
+.vs/ZTI OKE2018 Task 1/v15/Server/sqlite3/storage.ide-shm
+.vs/ZTI OKE2018 Task 1/v15/Server/sqlite3/storage.ide-wal
