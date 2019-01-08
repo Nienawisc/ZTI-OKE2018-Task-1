@@ -5,9 +5,9 @@
 ## Cele
 - [x] Przetworzenie zapytania.
 - [x] Określenie elementów w tekście za pomocą indeksu początkowego i końcowego.
-- [ ] Identyfikacja nazwanych podmiotów w zdaniach.
-- [ ] Ujednoznacznienie zidentyfikowanych podmiotów do bazy wiedzy DBpedia. 
-- [ ] Generacja RDF formalizującego powiązanie zidentyfikowanych podmiotów z bazą wiedzy DBpedia.
+- [x] Identyfikacja nazwanych podmiotów w zdaniach.
+- [x] Ujednoznacznienie zidentyfikowanych podmiotów do bazy wiedzy DBpedia. 
+- [x] Generacja RDF formalizującego powiązanie zidentyfikowanych podmiotów z bazą wiedzy DBpedia.
 
 
 
