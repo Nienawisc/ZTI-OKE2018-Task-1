@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using edu.stanford.nlp.ie.crf;
 using VDS.RDF.Query;
@@ -50,7 +52,7 @@ namespace ZTI_OKE2018_Task_1
 				var god = world[index];
 				foreach (var devil in god)
 				{
-					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses) index));
+					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)index));
 					if (dbpGraph.Results.Count > 0) devil.DBpediaREF = dbpGraph.Results.First()[1].ToString(); //referencja do dbpedii
 				}
 			}

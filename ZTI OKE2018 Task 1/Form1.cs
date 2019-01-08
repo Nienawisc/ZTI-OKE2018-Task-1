@@ -41,14 +41,17 @@ namespace ZTI_OKE2018_Task_1
 
 					if (graph.Results.Count > 0)
 					{
-						outputTextBox.Text += @"Found in dbpedia: " + graph.Results.First() + Environment.NewLine;
+						outputTextBox.Text += @"Found in dbpedia: " + graph.Results.First() + Environment.NewLine + Environment.NewLine;
 					}
 					else
 					{
-						outputTextBox.Text += @"Couldn't find anything matching to query: " + query + Environment.NewLine;
+						outputTextBox.Text += @"Couldn't find anything matching to query: " + query + Environment.NewLine + Environment.NewLine;
 					}
+
+					outputTextBox.Text += Environment.NewLine;
 				}
 
+				return;
 			}
 
 			IGraph g = new Graph();
@@ -98,30 +101,40 @@ namespace ZTI_OKE2018_Task_1
 				organisations = organisations.Concat(data.GetOntologyEntries(NerClasses.ORGANIZATION).ToList()).ToList();
 			}
 
-			Extensions.AskDB(new List<List<Data.DataProperties>> {persons, locations, organisations});
+			var output = new List<List<Data.DataProperties>> {persons, locations, organisations};
+
+			Extensions.AskDB(output);
 
 
 			#region Debug
 
-			outputTextBox.Text = "Person:\n";
-			foreach (var d in persons)
+			for (var index = 0; index < output.Count; index++)
 			{
-				outputTextBox.Text += $"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}\n";
-				outputTextBox.Text += $"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}\n";
-			}
+				switch (index)
+				{
+					case 0:
+						outputTextBox.Text += "Person:" + Environment.NewLine;
+						break;
+					case 1:
+						outputTextBox.Text += "Location:" + Environment.NewLine;
+						break;
+					case 2:
+						outputTextBox.Text += "Organization:" + Environment.NewLine;
+						break;
+					default:
+						outputTextBox.Text += Environment.NewLine;
+						break;
+				}
 
-			outputTextBox.Text += "Location:\n";
-			foreach (var d in locations)
-			{
-				outputTextBox.Text += $"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}\n";
-				outputTextBox.Text += $"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}\n";
-			}
-
-			outputTextBox.Text += "Organization:\n";
-			foreach (var d in organisations)
-			{
-				outputTextBox.Text += $"nif:beginIndex:{d.StartIndex},\nnif:endIndex :{d.StopIndex}\nnif:isString:{d.Text}\n";
-				outputTextBox.Text += $"nif:reference:{(d.InDBpedia ? d.DBpediaREF : "No in DBpedia")}\n";
+				var god = output[index];
+				foreach (var devil in god)
+				{
+					outputTextBox.Text += $"nif:beginIndex: {devil.StartIndex}" + Environment.NewLine;
+					outputTextBox.Text += $"nif:endIndex: {devil.StopIndex}" + Environment.NewLine;
+					outputTextBox.Text += $"nif:isString: {devil.Text}" + Environment.NewLine;
+					outputTextBox.Text += $"nif:reference:{(devil.InDBpedia ? devil.DBpediaREF : "No in DBpedia")}" + Environment.NewLine;
+					outputTextBox.Text += Environment.NewLine;
+				}
 			}
 
 			#endregion Debug
@@ -132,12 +145,14 @@ namespace ZTI_OKE2018_Task_1
 
 			#endregion RdfXmlWrite
 
-			Console.ReadLine();
+			MessageBox.Show("OK\r\n\r\nWyniki możesz podejrzeć naciskając guzik 'SparQL', następnie 'Debug'.","Zakończono działanie.");
+
 		}
 
 		private void JarFileLocation_Click(object sender, EventArgs e)
 		{
 			var c = Extensions.OFD("gz files (*.gz)|*.gz|All files (*.*)|*.*");
+			if(c == string.Empty) return;
 			Classifier = CRFClassifier.getClassifierNoExceptions(c);
 			Stanford.Text = c;
 		}
@@ -145,6 +160,7 @@ namespace ZTI_OKE2018_Task_1
 		private void FileLocation_Click(object sender, EventArgs e)
 		{
 			var i = Extensions.OFD("ttl files (*.ttl)|*.ttl|All files (*.*)|*.*");
+			if (i == string.Empty) return;
 			InputFilePath = i;
 			InputFile.Text = i;
 		}
