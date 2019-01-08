@@ -9,7 +9,7 @@ namespace ZTI_OKE2018_Task_1
 {
 	public partial class Data
 	{
-		public Data(int startIndex, int stopIndex, string text)
+		private Data(int startIndex, int stopIndex, string text)
 		{
 			StartIndex = startIndex;
 			StopIndex = stopIndex;
@@ -22,15 +22,13 @@ namespace ZTI_OKE2018_Task_1
 			CrfClassifier = crfClassifier ?? throw new ArgumentNullException(nameof(crfClassifier));
 		}
 
-		public List<DataProperties> Person { get; } = new List<DataProperties>();
+		private int StartIndex { get; }
 
-		internal int StartIndex { get; }
+		private int StopIndex { get; }
 
-		internal int StopIndex { get; }
+		private string Text { get; }
 
-		internal string Text { get; }
-
-		internal CRFClassifier CrfClassifier { get; }
+		private CRFClassifier CrfClassifier { get; }
 
 		private MatchCollection FindByRegex(string pattern)
 		{

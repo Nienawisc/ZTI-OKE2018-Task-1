@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using edu.stanford.nlp.ie.crf;
-using VDS.RDF;
 using VDS.RDF.Query;
 
 namespace ZTI_OKE2018_Task_1
@@ -14,17 +11,15 @@ namespace ZTI_OKE2018_Task_1
 	{
 		public static string CreateQuery(string word, OntologyClasses oClass, int limit = 1)
 		{
-			return (
-				"Select ?name " +
-				"?" + oClass.ToString().ToLower() +
-				" WHERE {" +
-				"?" + oClass.ToString().ToLower() +
-				" a <http://dbpedia.org/ontology/" + oClass + ">. " +
-				"?" + oClass.ToString().ToLower() +
-				" foaf:name ?name. " +
-				"FILTER (?name=\"" + word + "\"@en).} " +
-				"LIMIT " + limit
-			);
+			return "Select ?name " +
+			       "?" + oClass.ToString().ToLower() +
+			       " WHERE {" +
+			       "?" + oClass.ToString().ToLower() +
+			       " a <http://dbpedia.org/ontology/" + oClass + ">. " +
+			       "?" + oClass.ToString().ToLower() +
+			       " foaf:name ?name. " +
+			       "FILTER (?name=\"" + word + "\"@en).} " +
+			       "LIMIT " + limit;
 		}
 
 		public static string GetNerText(CRFClassifier crfClassifier, string text)
@@ -42,6 +37,7 @@ namespace ZTI_OKE2018_Task_1
 				i += pattern.Length;
 				count++;
 			}
+
 			return count;
 		}
 
@@ -49,33 +45,29 @@ namespace ZTI_OKE2018_Task_1
 		{
 			var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
 
-			foreach (var devil in world[0])
+			for (var index = 0; index < world.Count; index++)
 			{
-				var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)0));
-				if (dbpGraph.Results.Count > 0)
+				var god = world[index];
+				foreach (var devil in god)
 				{
-					devil.DBpediaREF = (dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
+					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses) index));
+					if (dbpGraph.Results.Count > 0) devil.DBpediaREF = dbpGraph.Results.First()[1].ToString(); //referencja do dbpedii
 				}
 			}
+		}
 
-			foreach (var devil in world[1])
+		public static string OFD(string filter)
+		{
+			using (var ofd = new OpenFileDialog
 			{
-				var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)1));
-				if (dbpGraph.Results.Count > 0)
-				{
-					devil.DBpediaREF = (dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
-				}
+				InitialDirectory = @"C:\", Title = "Browse file", CheckFileExists = true, CheckPathExists = true, Filter = filter, FilterIndex = 2, RestoreDirectory = true, ReadOnlyChecked = true, ShowReadOnly = true
+			})
+			{
+				if (ofd.ShowDialog() == DialogResult.OK)
+					return ofd.FileName;
 			}
 
-			foreach (var devil in world[2])
-			{
-				var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)2));
-				if (dbpGraph.Results.Count > 0)
-				{
-					devil.DBpediaREF = (dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
-				}
-			}
-
+			return string.Empty;
 		}
 	}
 }

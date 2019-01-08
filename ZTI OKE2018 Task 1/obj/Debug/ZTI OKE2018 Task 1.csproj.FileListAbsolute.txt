@@ -105,10 +105,10 @@ D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.pdb
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.xml
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csprojAssemblyReference.cache
-D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Form1.resources
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Properties.Resources.resources
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.GenerateResource.cache
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CoreCompileInputs.cache
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CopyComplete
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.exe
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.SparQLButton.resources

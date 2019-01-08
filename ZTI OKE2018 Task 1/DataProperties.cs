@@ -20,7 +20,7 @@ namespace ZTI_OKE2018_Task_1
 
 			public int StopIndex { get; }
 
-			public bool InDBpedia;
+			public bool InDBpedia { get; set; }
 
 			public string DBpediaREF
 			{
@@ -31,8 +31,6 @@ namespace ZTI_OKE2018_Task_1
 					InDBpedia = true;
 				}
 			}
-
-			private bool _inDBpedia;
 
 			private string _DBpediaREF;
 
