@@ -267,3 +267,7 @@ __pycache__/
 *.pdb
 *.cache
 *.suo
+*.ide
+*.ide
+*.ide-shm
+*.ide-wal
