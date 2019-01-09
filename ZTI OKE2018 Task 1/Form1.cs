@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -7,7 +8,6 @@ using edu.stanford.nlp.ie.crf;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
-using VDS.RDF.Writing;
 using ZTI_OKE2018_Task_1.Properties;
 
 namespace ZTI_OKE2018_Task_1
@@ -139,7 +139,9 @@ namespace ZTI_OKE2018_Task_1
 
 			#region RdfXmlWrite
 
-			new RdfXmlWriter().Save(g, "output.rdf");
+			//new RdfXmlWriter().Save(g, "output.rdf");
+			var rdf = Extensions.CreateOutput(InputFilePath, output);
+			File.WriteAllText("output.rdf", rdf);
 
 			#endregion RdfXmlWrite
 

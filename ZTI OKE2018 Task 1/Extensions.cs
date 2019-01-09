@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using edu.stanford.nlp.ie.crf;
 using VDS.RDF.Query;
@@ -52,7 +51,7 @@ namespace ZTI_OKE2018_Task_1
 				var god = world[index];
 				foreach (var devil in god)
 				{
-					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses)index));
+					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses) index));
 					if (dbpGraph.Results.Count > 0) devil.DBpediaREF = dbpGraph.Results.First()[1].ToString(); //referencja do dbpedii
 				}
 			}
@@ -70,6 +69,45 @@ namespace ZTI_OKE2018_Task_1
 			}
 
 			return string.Empty;
+		}
+
+		public static string CreateOutput(string inputFilePath, List<List<Data.DataProperties>> list)
+		{
+			var response = string.Empty;
+
+			var inputText = File.ReadAllText(inputFilePath);
+
+			var address = inputText.Split('\n').First(s => (s.Contains("http://") || s.Contains("https://")) && s.Contains("#char="));
+
+			var nocharAddress = address.Remove(0, 1).Replace(">", string.Empty).Split('#')[0];
+
+			//response += inputText + Environment.NewLine;
+
+			foreach (var god in list)
+			{
+				foreach (var devil in god)
+				{
+					response += $"<{nocharAddress}#char={devil.StartIndex},{devil.StopIndex}" + Environment.NewLine;
+					response += Insert("\t") + "a" + Insert("\t", 5) + "nif:RFC5147String, nif:String;" + Environment.NewLine;
+					response += Insert("\t") + "nif:anchorOf" + Insert("\t", 2) + $"\"{devil.Text}\"@en;" + Environment.NewLine;
+					response += Insert("\t") + "nif:beginIndex" + Insert("\t", 2) + $"\"{devil.StartIndex}\"^^xsd:nonNegativeInteger;" + Environment.NewLine;
+					response += Insert("\t") + "nif:endIndex" + Insert("\t", 2) + $"\"{devil.StopIndex}\"^^xsd:nonNegativeInteger; " + Environment.NewLine;
+					response += Insert("\t") + "nif:referenceContext" + Insert("\t") + address + Environment.NewLine;
+					response += Insert("\t") + "itsrdf:taIdentRef" + Insert("\t") + (devil.InDBpedia ? $"dbpedia:{devil.DBpediaREF.Split('/').Last()}" : $"<http://aksw.org/notInWiki/{devil.Text.Replace(' ', '_')}>") + "." + Environment.NewLine;
+					response += Environment.NewLine;
+				}
+			}
+
+			return response;
+		}
+
+		private static string Insert(string s, int n = 1)
+		{
+			var output = string.Empty;
+
+			for (var i = 0; i < n; i++) output += s;
+
+			return output;
 		}
 	}
 }
