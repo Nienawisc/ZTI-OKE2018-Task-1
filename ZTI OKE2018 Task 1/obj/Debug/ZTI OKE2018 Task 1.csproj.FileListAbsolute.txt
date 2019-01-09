@@ -95,7 +95,6 @@ D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.Runtime.dll
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.Runtime.JNI.dll
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.dll
-D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\slf4j-api.dll
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\stanford-ner.dll
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.dll
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.xml
@@ -112,3 +111,6 @@ D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.exe
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.pdb
 D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.SparQLButton.resources
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\joda-time.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\jollyday-0.4.9.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.pdb
