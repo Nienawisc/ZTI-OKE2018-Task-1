@@ -259,14 +259,11 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-*.ide-shm
-*.ide-wal
-.vs/ZTI OKE2018 Task 1/v15/.suo
+
+
+
 *.ide-shm
 *.ide-wal
 *.pdb
 *.cache
-.vs/ZTI OKE2018 Task 1/v15/.suo
-*.ide-wal
-*.pdb
-*.pdb
+*.suo
