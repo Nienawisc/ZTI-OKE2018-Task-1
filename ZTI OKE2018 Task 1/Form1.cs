@@ -1,329 +1,199 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using edu.stanford.nlp.ie.crf;
 using VDS.RDF;
 using VDS.RDF.Parsing;
 using VDS.RDF.Query;
-using VDS.RDF.Query.Datasets;
-using VDS.RDF.Writing;
-using VDS.RDF.Writing.Formatting;
-using edu.stanford.nlp.ie.crf;
-using Console = System.Console;
+using ZTI_OKE2018_Task_1.Properties;
 
 namespace ZTI_OKE2018_Task_1
 {
-    public partial class Form1 : Form
-    {
-        class properties
-        {
-            int startIndex, stopIndex;
-            string text;
-            string DBpediaREF;
-            bool inDBpedia;
-            
-            public properties()
-            {
-                inDBpedia = false;
-            }
+	public partial class SparQLButton : Form
+	{
+		public SparQLButton()
+		{
+			InitializeComponent();
+			Height = 140;
+			SparQL.Image = Resources.SparQL1;
+		}
 
-            public void setDBpediaREF(string dbref)
-            {
-                DBpediaREF = dbref;
-                inDBpedia = true;
-            }
+		private CRFClassifier Classifier { get; set; }
+		private string InputFilePath { get; set; }
+		private bool IsSparQL { get; set; }
+		private bool IsDebug { get; set; }
 
-            public string Text { get => text; set => text = value; }
-            public int StopIndex { get => stopIndex; set => stopIndex = value; }
-            public int StartIndex { get => startIndex; set => startIndex = value; }
-            public bool InDBpedia { get => inDBpedia; set => inDBpedia = value; }
-            public string DBpediaREF1 { get => DBpediaREF; set => DBpediaREF = value; }
-        }
+		private void button1_Click(object sender, EventArgs e)
+		{
+			if (IsSparQL)
+			{
+				var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
 
-        class Data
-        {
-            int startIndex, stopIndex;
-            string text;
-            string nerText;
-            public List<properties> Person = new List<properties>();
-            public List<properties> Location = new List<properties>();
-            public List<properties> Organization = new List<properties>();
+				foreach (var c in (OntologyClasses[]) Enum.GetValues(typeof(OntologyClasses)))
+				{
+					var query = Extensions.CreateQuery(inputTextBox.Text, c, 5);
+					var graph = endpoint.QueryWithResultSet(query);
 
-            // Loading 3 class classifier model
-            CRFClassifier classifier;
+					if (!IsDebug) continue;
 
-            public int StartIndex { get => startIndex; set => startIndex = value; }
-            public int StopIndex { get => stopIndex; set => stopIndex = value; }
-            public string Text { get => text; set => text = value; }
+					if (graph.Results.Count > 0)
+						outputTextBox.Text += @"Found in dbpedia: " + graph.Results.First() + Environment.NewLine + Environment.NewLine;
+					else
+						outputTextBox.Text += @"Couldn't find anything matching to query: " + query + Environment.NewLine + Environment.NewLine;
 
-            public Data(CRFClassifier c)
-            {
-                classifier =c;
-            }
+					outputTextBox.Text += Environment.NewLine;
+				}
 
-            public void findNer()
-            {
-                Console.WriteLine("{0}\n", classifier.classifyWithInlineXML(Text));
-                nerText = classifier.classifyWithInlineXML(Text);
-            }
+				return;
+			}
 
-            public int CountStringOccurrences(string text, string pattern)
-            {
-                // Loop through all instances of the string 'text'.
-                int count = 0;
-                int i = 0;
-                while ((i = text.IndexOf(pattern, i)) != -1)
-                {
-                    i += pattern.Length;
-                    count++;
-                }
-                return count;
-            }
+			IGraph g = new Graph();
 
-            public void findIndex(String text1, String text2)
-            {
-                int i = 0;
-                int j = 0;
-                int k = 0;
+			//Load using a Filename
+			new TurtleParser().Load(g, InputFilePath);
 
-                int count = 0;
+			var triples = g.Triples.Where(q => q.Predicate.ToString().ToLower().Contains("isString".ToLower())).GroupBy(q => q.Object).Select(q => q.First());
 
-                int occurrences = CountStringOccurrences(nerText, text1);
+			#region LINQ
 
-                while (count<occurrences)
-                {
-                    int posA = nerText.IndexOf(text1,i);
-                    int posB = nerText.IndexOf(text2,j);
-                    int adjustedPosA = posA + text1.Length;
-                    String nazwa = "";
+			/* Orginal from LINQ below
+			foreach (var t in triples)
+			{
+				var match = new Regex("char=([0-9]+),([0-9]+)").Match(t.Subject.ToString());
+				if (!match.Success) continue;
 
-                    if (posA >= 0 && posB >= 0)
-                    {
-                        i = posA+text1.Length;
-                        j = posB+text2.Length;
-                        nazwa = nerText.Substring(adjustedPosA, posB - adjustedPosA);
-                        count += 1;
-                        properties newprop = new properties();
-                        newprop.Text = nazwa;
-                        newprop.StartIndex = text.IndexOf(nazwa, k);
-                        newprop.StopIndex = (text.IndexOf(nazwa, k) + nazwa.Length - 1);
-                        k = text.IndexOf(nazwa, k) + nazwa.Length;
+				var startIndex = 0;
+				var stopIndex = int.Parse(match.Groups[2].Value);
 
-                        if (text1 == "<PERSON>") Person.Add(newprop);
-                        if (text1 == "<LOCATION>") Location.Add(newprop);
-                        if (text1 == "<ORGANIZATION>") Organization.Add(newprop);
-                    }
-                }
-            }
+				var newData = new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), Classifier);
 
-            public void askdb()
-            {
-                SparqlRemoteEndpoint endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
+				dataSet.Add(newData);
+			}
+			 */
 
-                //Console.WriteLine(m.ToString());
-                foreach(var p in Person)
-                {
-                    string find = p.Text;
+			#endregion LINQ
 
-                    // Ask DBPedia to describe the first thing it finds which is a Person
-                    var query2 = "Select ?name ?person WHERE {?person a <http://dbpedia.org/ontology/Person>. ?person foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 1";
+			var dataSet = (
+				from t
+					in triples
+				let match = new Regex("char=([0-9]+),([0-9]+)").Match(t.Subject.ToString())
+				where match.Success
+				let startIndex = 0
+				let stopIndex = int.Parse(match.Groups[2].Value)
+				select new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), Classifier)
+			).ToList();
 
-                    //Get the result
-                    var dbpGraph = endpoint.QueryWithResultSet(query2);
-                    if (dbpGraph.Results.Count > 0)
-                    {
-                        p.setDBpediaREF(dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
-                    }
-                }
-                foreach (var p in Location)
-                {
-                    string find = p.Text;
+			var persons = new List<Data.DataProperties>();
+			var locations = new List<Data.DataProperties>();
+			var organisations = new List<Data.DataProperties>();
 
-                    // Ask DBPedia to describe the first thing it finds which is a Person
-                    var query2 = "Select ?name ?place WHERE {?place a <http://dbpedia.org/ontology/Place>. ?place foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
+			foreach (var data in dataSet)
+			{
+				persons = persons.Concat(data.GetOntologyEntries(NerClasses.PERSON).ToList()).ToList();
+				locations = locations.Concat(data.GetOntologyEntries(NerClasses.LOCATION).ToList()).ToList();
+				organisations = organisations.Concat(data.GetOntologyEntries(NerClasses.ORGANIZATION).ToList()).ToList();
+			}
 
-                    //Get the result
-                    var dbpGraph = endpoint.QueryWithResultSet(query2);
-                    if (dbpGraph.Results.Count > 0)
-                    {
-                        p.setDBpediaREF(dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
-                    }
-                }
-                foreach (var p in Organization)
-                {
-                    string find = p.Text;
+			var output = new List<List<Data.DataProperties>> {persons, locations, organisations};
 
-                    // Ask DBPedia to describe the first thing it finds which is a Person
-                    var query2 = "Select ?name ?organisation WHERE {?organisation a<http://dbpedia.org/ontology/Organisation>. ?organisation foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 5";
+			Extensions.AskDB(output);
 
-                    //Get the result
-                    var dbpGraph = endpoint.QueryWithResultSet(query2);
-                    if (dbpGraph.Results.Count > 0)
-                    {
-                        p.setDBpediaREF(dbpGraph.Results.First()[1].ToString()); //referencja do dbpedii
-                    }
-                }
-            }
-           
-           /* public void findPersons()
-            {
-                string pattern = "([A-Z][a-z]+ )+";
-                Regex regex = new Regex(pattern);
-                MatchCollection matches = regex.Matches(text);
-                foreach(Match m in matches)
-                {
-                    SparqlRemoteEndpoint endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
+			#region Debug
 
-                    //Console.WriteLine(m.ToString());
-                    string find = m.ToString().Substring(0,m.ToString().Length-1);
+			for (var index = 0; index < output.Count; index++)
+			{
+				switch (index)
+				{
+					case 0:
+						outputTextBox.Text += "Person:" + Environment.NewLine;
+						break;
 
-                    // Ask DBPedia to describe the first thing it finds which is a Person
-                    var query2 = "Select ?name ?person WHERE {?person a <http://dbpedia.org/ontology/Person>. ?person foaf:name ?name. FILTER (?name=\"" + find + "\"@en).} LIMIT 1";
+					case 1:
+						outputTextBox.Text += "Location:" + Environment.NewLine;
+						break;
 
-                    //Get the result
-                    var dbpGraph = endpoint.QueryWithResultSet(query2);
-                    if (dbpGraph.Results.Count > 0)
-                    {
-                        Data newPersonData = new Data();
-                        //newPersonData.Text = m.ToString(); //sam tekst
-                        newPersonData.Text = dbpGraph.Results.First()[1].ToString(); //referencja do dbpedii
-                        newPersonData.StartIndex = m.Index;
-                        newPersonData.StopIndex = m.Index + text.Length;
+					case 2:
+						outputTextBox.Text += "Organization:" + Environment.NewLine;
+						break;
 
-                        Person.Add(newPersonData);
-                    }
-                }
-            }*/
-        };
-        public Form1()
-        {
-            InitializeComponent();
-        }
+					default:
+						outputTextBox.Text += Environment.NewLine;
+						break;
+				}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Path to the folder with classifiers models
-            String jarRoot = @"C:\Users\G\Downloads\stanford-ner-2016-10-31";
-            String classifiersDirecrory;
-            classifiersDirecrory = jarRoot + @"\classifiers";
-            CRFClassifier classifier= CRFClassifier.getClassifierNoExceptions(classifiersDirecrory + @"\english.all.3class.distsim.crf.ser.gz");
+				var god = output[index];
+				foreach (var devil in god)
+				{
+					outputTextBox.Text += $"nif:beginIndex: {devil.StartIndex}" + Environment.NewLine;
+					outputTextBox.Text += $"nif:endIndex: {devil.StopIndex}" + Environment.NewLine;
+					outputTextBox.Text += $"nif:isString: {devil.Text}" + Environment.NewLine;
+					outputTextBox.Text += $"nif:reference:{(devil.InDBpedia ? devil.DBpediaREF : "No in DBpedia")}" + Environment.NewLine;
+					outputTextBox.Text += Environment.NewLine;
+				}
+			}
 
-            IGraph g = new Graph();
+			#endregion Debug
 
-            //Load using a Filename
-            new TurtleParser().Load(g, "oke17task1Training.xml.ttl");
+			#region RdfXmlWrite
 
-            //Testing parsed data
-            foreach (var t in g.Triples)
-            {
-               // Console.WriteLine($"Subject: {t.Subject}" + Environment.NewLine + $"Predicate: {t.Predicate}" + Environment.NewLine + $"Object: {t.Object}" + Environment.NewLine);
-            }
+			//new RdfXmlWriter().Save(g, "output.rdf");
+			var rdf = Extensions.CreateOutput(InputFilePath, output);
+			File.WriteAllText("output.rdf", rdf);
 
-            //Get the Query processor
-            ISparqlQueryProcessor processor = new LeviathanQueryProcessor(new InMemoryDataset(g));
+			#endregion RdfXmlWrite
 
-            //Use the SparqlQueryParser to give us a SparqlQuery object
-            //Should get a Graph back from a CONSTRUCT query
-            var query = new SparqlQueryParser().ParseFromString("CONSTRUCT { ?s ?p ?o } WHERE {?s ?p ?o}");
-            var results = processor.ProcessQuery(query);
-            if (!(results is IGraph g1)) return;
+			MessageBox.Show("OK\r\n\r\nWyniki możesz podejrzeć naciskając guzik 'SparQL', następnie 'Debug'.", "Zakończono działanie.");
+		}
 
-            //Print out the Results
-            var formatter = new NTriplesFormatter();
+		private void JarFileLocation_Click(object sender, EventArgs e)
+		{
+			var c = Extensions.OFD("gz files (*.gz)|*.gz|All files (*.*)|*.*");
+			if (c == string.Empty) return;
+			Classifier = CRFClassifier.getClassifierNoExceptions(c);
+			Stanford.Text = c;
+		}
 
-            var Triples = g.Triples.Where(q => q.Predicate.ToString().ToLower().Contains("isString".ToLower())).GroupBy(q => q.Object).Select(q => q.First());
+		private void FileLocation_Click(object sender, EventArgs e)
+		{
+			var i = Extensions.OFD("ttl files (*.ttl)|*.ttl|All files (*.*)|*.*");
+			if (i == string.Empty) return;
+			InputFilePath = i;
+			InputFile.Text = i;
+		}
 
-            List<Data> dataSet = new List<Data>();
+		private void SparQL_Click(object sender, EventArgs e)
+		{
+			IsSparQL = !IsSparQL;
 
-            foreach (var t in Triples)
-            {
-                //Console.WriteLine(t.ToString(formatter));
-                string pattern = "char=([0-9]+),([0-9]+)";
-                Regex regex = new Regex(pattern);
-                Match match = regex.Match(t.Subject.ToString());
-                if (match.Success)
-                {
-                    Data newData = new Data(classifier);
-                    newData.StartIndex = 0;
-                    newData.StopIndex= Int32.Parse(match.Groups[2].Value);
-                    newData.Text = t.Object.ToString().Substring(newData.StartIndex, newData.StopIndex);
-                    dataSet.Add(newData);
-                }
-            }
-             foreach(var data in dataSet)
-             {
-                 data.findNer();
-                 data.findIndex("<PERSON>","</PERSON>");
-                 data.findIndex("<LOCATION>", "</LOCATION>");
-                 data.findIndex("<ORGANIZATION>", "</ORGANIZATION>");
-                 data.askdb();
-                Console.WriteLine("Person:");
-                foreach (var d in data.Person)
-                 {
-                     Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}",d.StartIndex,d.StopIndex,d.Text));
-                     Console.WriteLine(string.Format("nif:reference:{0}", d.InDBpedia?d.DBpediaREF1:"No in DBpedia" ));
-                 }
-                Console.WriteLine("Location:");
-                foreach (var d in data.Location)
-                {
-                    Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}", d.StartIndex, d.StopIndex, d.Text));
-                    Console.WriteLine(string.Format("nif:reference:{0}", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
-                }
-                Console.WriteLine("Organization:");
-                foreach (var d in data.Organization)
-                {
-                    Console.WriteLine(string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}", d.StartIndex, d.StopIndex, d.Text));
-                    Console.WriteLine(string.Format("nif:reference:{0}", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
-                }
-            }
+			if (IsSparQL)
+			{
+				SparQL.Image = Resources.SparQL2;
+				Height = 300;
+				DebugButton.Visible = true;
+				return;
+			}
 
-            Console.WriteLine("Query took " + query.QueryExecutionTime + " milliseconds\n");
-        }
+			SparQL.Image = Resources.SparQL1;
+			Height = 140;
+			DebugButton.Visible = false;
+		}
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            // Path to the folder with classifiers models
-            String jarRoot = @"C:\Users\G\Downloads\stanford-ner-2016-10-31";
-            String classifiersDirecrory;
-            classifiersDirecrory = jarRoot + @"\classifiers";
-            CRFClassifier classifier = CRFClassifier.getClassifierNoExceptions(classifiersDirecrory + @"\english.all.3class.distsim.crf.ser.gz");
-            Data inputData = new Data(classifier);
+		private void DebugButton_Click(object sender, EventArgs e)
+		{
+			IsDebug = !IsDebug;
 
-            inputData.Text = inputTextBox.Text;
-            inputData.StartIndex = 0;
-            inputData.StopIndex = inputTextBox.Text.Length-1;
+			if (IsDebug)
+			{
+				DebugButton.Text = "Debug ↑↑↑";
+				Height = 600;
+				return;
+			}
 
-            inputData.findNer();
-            inputData.findIndex("<PERSON>", "</PERSON>");
-            inputData.findIndex("<LOCATION>", "</LOCATION>");
-            inputData.findIndex("<ORGANIZATION>", "</ORGANIZATION>");
-            inputData.askdb();
-
-            outputTextBox.Text="Person:\n";
-            foreach (var d in inputData.Person)
-            {
-                outputTextBox.Text+=string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
-                outputTextBox.Text+=(string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
-            }
-            outputTextBox.Text += "Location:\n";
-            foreach (var d in inputData.Location)
-            {
-                outputTextBox.Text += string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
-                outputTextBox.Text += (string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
-            }
-            outputTextBox.Text += "Organization:\n";
-            foreach (var d in inputData.Organization)
-            {
-                outputTextBox.Text += string.Format("nif:beginIndex:{0},\nnif:endIndex :{1}\nnif:isString:{2}\n", d.StartIndex, d.StopIndex, d.Text);
-                outputTextBox.Text += (string.Format("nif:reference:{0}\n", d.InDBpedia ? d.DBpediaREF1 : "No in DBpedia"));
-            }
-        }
-    }
+			DebugButton.Text = "Debug ↓↓↓";
+			Height = 300;
+		}
+	}
 }

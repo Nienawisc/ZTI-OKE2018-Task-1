@@ -40,34 +40,75 @@ C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI 
 C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CopyComplete
 C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.exe
 C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.pdb
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.AWT.WinForms.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Beans.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Charsets.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Cldrdata.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Corba.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Core.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Jdbc.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Localedata.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Management.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Media.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Misc.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Naming.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Nashorn.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Remoting.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Security.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Text.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Tools.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Util.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.API.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Bind.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Crypto.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Parse.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Transform.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.WebServices.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.XPath.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.Runtime.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.Runtime.JNI.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\joda-time.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\jollyday-0.4.9.dll
-C:\Users\G\Documents\GitHub\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\stanford-ner.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe.config
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csprojAssemblyReference.cache
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Form1.resources
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Properties.Resources.resources
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.GenerateResource.cache
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CoreCompileInputs.cache
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CopyComplete
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.exe
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe.config
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.exe
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\ZTI OKE2018 Task 1.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.AWT.WinForms.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Beans.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Charsets.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Cldrdata.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Corba.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Core.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Jdbc.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Localedata.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Management.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Media.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Misc.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Naming.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Nashorn.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Remoting.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Security.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Text.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Tools.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.Util.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.API.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Bind.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Crypto.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Parse.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.Transform.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.WebServices.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.OpenJDK.XML.XPath.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.Runtime.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\IKVM.Runtime.JNI.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\slf4j-api.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\stanford-ner.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.dll
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\dotNetRDF.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\HtmlAgilityPack.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\Newtonsoft.Json.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\bin\Debug\VDS.Common.xml
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csprojAssemblyReference.cache
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.Properties.Resources.resources
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.GenerateResource.cache
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CoreCompileInputs.cache
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.csproj.CopyComplete
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.exe
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI OKE2018 Task 1.pdb
+D:\!GoogleDrive (dawidk6)\Visual Studio 2017\Projects\ZTI-OKE2018-Task-1-master\ZTI-OKE2018-Task-1\ZTI OKE2018 Task 1\obj\Debug\ZTI_OKE2018_Task_1.SparQLButton.resources
