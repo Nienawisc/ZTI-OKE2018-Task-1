@@ -570,6 +570,14 @@
             <param name="stream">The input stream. May not be null.</param>
             <returns>The detected encoding.</returns>
         </member>
+        <member name="M:HtmlAgilityPack.HtmlDocument.DetectEncoding(System.IO.Stream,System.Boolean)">
+            <summary>
+            Detects the encoding of an HTML stream.
+            </summary>
+            <param name="stream">The input stream. May not be null.</param>
+            <param name="checkHtml">The html is checked.</param>
+            <returns>The detected encoding.</returns>
+        </member>
         <member name="M:HtmlAgilityPack.HtmlDocument.DetectEncoding(System.IO.TextReader)">
             <summary>
             Detects the encoding of an HTML text provided on a TextReader.
