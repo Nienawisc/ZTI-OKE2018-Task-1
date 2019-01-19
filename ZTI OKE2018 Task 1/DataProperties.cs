@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ZTI_OKE2018_Task_1
 {
@@ -6,37 +7,62 @@ namespace ZTI_OKE2018_Task_1
 	{
 		public class DataProperties
 		{
-			public DataProperties(string text, int startIndex, int stopIndex, bool inDBpedia = false)
+			public DataProperties(string referenceContext, string anchorOf, NerClasses nerClass, int beginIndex, int endIndex, bool inDBpedia = false)
 			{
-				Text = text ?? throw new ArgumentNullException(nameof(text));
-				StartIndex = startIndex;
-				StopIndex = stopIndex;
+				ReferenceContext = referenceContext ?? throw new ArgumentNullException(nameof(referenceContext));
+				AnchorOf = anchorOf ?? throw new ArgumentNullException(nameof(anchorOf));
+				BeginIndex = beginIndex;
+				EndIndex = endIndex;
 				InDBpedia = inDBpedia;
+				NerClass = nerClass;
 			}
 
-			public string Text { get; }
+			public string AnchorOf { get; }
+			public NerClasses NerClass { get; }
 
-			public int StartIndex { get; }
+			private int BeginIndex { get; }
 
-			public int StopIndex { get; }
+			private int EndIndex { get; }
 
-			public bool InDBpedia { get; set; }
+			private bool InDBpedia { get; set; }
 
-			public string DBpediaREF
+			private string ReferenceContext { get; }
+
+			public string TaIdentRef
 			{
-				get => _DBpediaREF;
+				get => _taIdentRef;
 				set
 				{
-					_DBpediaREF = value;
+					_taIdentRef = value;
 					InDBpedia = true;
 				}
 			}
 
-			private string _DBpediaREF;
+			private string _taIdentRef;
 
 			public override string ToString()
 			{
-				return ($"Nazwa: {Text}" + Environment.NewLine + $"Start Index: {StartIndex}" + Environment.NewLine + $"Stop Index: {StopIndex}" + Environment.NewLine);
+				var output = string.Empty;
+				var noCharAddress = ReferenceContext.Replace(">", string.Empty).Split('#')[0];
+
+				output += $"<{noCharAddress}#char={BeginIndex},{EndIndex}>" + Environment.NewLine;
+				output += Insert("\t") + "a" + Insert("\t", 6) + "nif:RFC5147String, nif:String;" + Environment.NewLine;
+				output += Insert("\t") + "nif:anchorOf" + Insert("\t", 3) + $"\"{AnchorOf}\"@en;" + Environment.NewLine;
+				output += Insert("\t") + "nif:beginIndex" + Insert("\t", 3) + $"\"{BeginIndex}\"^^xsd:nonNegativeInteger;" + Environment.NewLine;
+				output += Insert("\t") + "nif:endIndex" + Insert("\t", 3) + $"\"{EndIndex}\"^^xsd:nonNegativeInteger; " + Environment.NewLine;
+				output += Insert("\t") + "nif:referenceContext" + Insert("\t") + $"<{ReferenceContext}>" + Environment.NewLine;
+				output += Insert("\t") + "itsrdf:taIdentRef" + Insert("\t", 2) + (InDBpedia ? $"dbpedia:{TaIdentRef.Split('/').Last()}" : $"<http://aksw.org/notInWiki/{AnchorOf.Replace(' ', '_')}>") + "." + Environment.NewLine;
+				output += Environment.NewLine;
+				return output;
+			}
+
+			private static string Insert(string s, int n = 1)
+			{
+				var output = string.Empty;
+
+				for (var i = 0; i < n; i++) output += s;
+
+				return output;
 			}
 		}
 	}

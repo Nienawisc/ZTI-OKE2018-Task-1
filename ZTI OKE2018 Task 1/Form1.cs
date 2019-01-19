@@ -12,6 +12,9 @@ using ZTI_OKE2018_Task_1.Properties;
 
 namespace ZTI_OKE2018_Task_1
 {
+	/// <summary>
+	///     <
+	/// </summary>
 	public partial class SparQLButton : Form
 	{
 		public SparQLButton()
@@ -60,6 +63,7 @@ namespace ZTI_OKE2018_Task_1
 			#region LINQ
 
 			/* Orginal from LINQ below
+			var dataSet = new List<Data>();
 			foreach (var t in triples)
 			{
 				var match = new Regex("char=([0-9]+),([0-9]+)").Match(t.Subject.ToString());
@@ -68,11 +72,11 @@ namespace ZTI_OKE2018_Task_1
 				var startIndex = 0;
 				var stopIndex = int.Parse(match.Groups[2].Value);
 
-				var newData = new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), Classifier);
+				var newData = new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), t.Subject.ToString(), Classifier);
 
 				dataSet.Add(newData);
 			}
-			 */
+			// */
 
 			#endregion LINQ
 
@@ -83,21 +87,21 @@ namespace ZTI_OKE2018_Task_1
 				where match.Success
 				let startIndex = 0
 				let stopIndex = int.Parse(match.Groups[2].Value)
-				select new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), Classifier)
+				select new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), t.Subject.ToString(), Classifier)
 			).ToList();
 
 			var persons = new List<Data.DataProperties>();
 			var locations = new List<Data.DataProperties>();
-			var organisations = new List<Data.DataProperties>();
+			var organizations = new List<Data.DataProperties>();
 
 			foreach (var data in dataSet)
 			{
 				persons = persons.Concat(data.GetOntologyEntries(NerClasses.PERSON).ToList()).ToList();
 				locations = locations.Concat(data.GetOntologyEntries(NerClasses.LOCATION).ToList()).ToList();
-				organisations = organisations.Concat(data.GetOntologyEntries(NerClasses.ORGANIZATION).ToList()).ToList();
+				organizations = organizations.Concat(data.GetOntologyEntries(NerClasses.ORGANIZATION).ToList()).ToList();
 			}
 
-			var output = new List<List<Data.DataProperties>> {persons, locations, organisations};
+			var output = new List<IEnumerable<Data.DataProperties>> {persons.Distinct(), locations.Distinct(), organizations.Distinct()};
 
 			Extensions.AskDB(output);
 
@@ -125,14 +129,7 @@ namespace ZTI_OKE2018_Task_1
 				}
 
 				var god = output[index];
-				foreach (var devil in god)
-				{
-					outputTextBox.Text += $"nif:beginIndex: {devil.StartIndex}" + Environment.NewLine;
-					outputTextBox.Text += $"nif:endIndex: {devil.StopIndex}" + Environment.NewLine;
-					outputTextBox.Text += $"nif:isString: {devil.Text}" + Environment.NewLine;
-					outputTextBox.Text += $"nif:reference:{(devil.InDBpedia ? devil.DBpediaREF : "No in DBpedia")}" + Environment.NewLine;
-					outputTextBox.Text += Environment.NewLine;
-				}
+				foreach (var devil in god) outputTextBox.Text += devil.ToString();
 			}
 
 			#endregion Debug
@@ -141,6 +138,7 @@ namespace ZTI_OKE2018_Task_1
 
 			//new RdfXmlWriter().Save(g, "output.rdf");
 			var rdf = Extensions.CreateOutput(InputFilePath, output);
+
 			File.WriteAllText("output.rdf", rdf);
 
 			#endregion RdfXmlWrite

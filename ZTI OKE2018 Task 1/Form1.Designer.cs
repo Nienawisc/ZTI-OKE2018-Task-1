@@ -153,7 +153,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(382, 561);
+			this.ClientSize = new System.Drawing.Size(384, 561);
 			this.Controls.Add(this.DebugButton);
 			this.Controls.Add(this.SparQL);
 			this.Controls.Add(this.label2);
@@ -166,6 +166,8 @@
 			this.Controls.Add(this.outputTextBox);
 			this.Controls.Add(this.inputTextBox);
 			this.Margin = new System.Windows.Forms.Padding(2);
+			this.MaximumSize = new System.Drawing.Size(400, 600);
+			this.MinimumSize = new System.Drawing.Size(400, 140);
 			this.Name = "SparQLButton";
 			this.Text = "IsSparQL";
 			((System.ComponentModel.ISupportInitialize)(this.SparQL)).EndInit();

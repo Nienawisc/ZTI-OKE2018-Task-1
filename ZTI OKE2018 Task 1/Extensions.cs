@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using edu.stanford.nlp.ie.crf;
+using VDS.RDF;
 using VDS.RDF.Query;
 
 namespace ZTI_OKE2018_Task_1
@@ -42,17 +43,17 @@ namespace ZTI_OKE2018_Task_1
 			return count;
 		}
 
-		public static void AskDB(List<List<Data.DataProperties>> world)
+		public static void AskDB(IEnumerable<IEnumerable<Data.DataProperties>> world)
 		{
 			var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
 
-			for (var index = 0; index < world.Count; index++)
+			for (var index = 0; index < world.ToArray().Length; index++)
 			{
-				var god = world[index];
-				foreach (var devil in god)
+				var god = world.ToArray()[index]; //Nerclass
+				foreach (var devil in god) //entry
 				{
-					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.Text, (OntologyClasses) index));
-					if (dbpGraph.Results.Count > 0) devil.DBpediaREF = dbpGraph.Results.First()[1].ToString(); //referencja do dbpedii
+					var dbpGraph = endpoint.QueryWithResultSet(CreateQuery(devil.AnchorOf, GetOntologyClass(devil.NerClass)));
+					if (dbpGraph.Results.Count > 0) devil.TaIdentRef = dbpGraph.Results.First()[1].ToString(); //referencja do dbpedii
 				}
 			}
 		}
@@ -71,43 +72,33 @@ namespace ZTI_OKE2018_Task_1
 			return string.Empty;
 		}
 
-		public static string CreateOutput(string inputFilePath, List<List<Data.DataProperties>> list)
+		public static string CreateOutput(string inputFilePath, IEnumerable<IEnumerable<Data.DataProperties>> list)
 		{
-			var response = string.Empty;
+			var inputText = File.ReadAllText(inputFilePath) + Environment.NewLine;
 
-			var inputText = File.ReadAllText(inputFilePath);
+			var response = list.SelectMany(god => god).Aggregate(string.Empty, (current, devil) => current + devil.ToString());
 
-			var address = inputText.Split('\n').First(s => (s.Contains("http://") || s.Contains("https://")) && s.Contains("#char="));
-
-			var nocharAddress = address.Remove(0, 1).Replace(">", string.Empty).Split('#')[0];
-
-			//response += inputText + Environment.NewLine;
-
-			foreach (var god in list)
-			{
-				foreach (var devil in god)
-				{
-					response += $"<{nocharAddress}#char={devil.StartIndex},{devil.StopIndex}" + Environment.NewLine;
-					response += Insert("\t") + "a" + Insert("\t", 5) + "nif:RFC5147String, nif:String;" + Environment.NewLine;
-					response += Insert("\t") + "nif:anchorOf" + Insert("\t", 2) + $"\"{devil.Text}\"@en;" + Environment.NewLine;
-					response += Insert("\t") + "nif:beginIndex" + Insert("\t", 2) + $"\"{devil.StartIndex}\"^^xsd:nonNegativeInteger;" + Environment.NewLine;
-					response += Insert("\t") + "nif:endIndex" + Insert("\t", 2) + $"\"{devil.StopIndex}\"^^xsd:nonNegativeInteger; " + Environment.NewLine;
-					response += Insert("\t") + "nif:referenceContext" + Insert("\t") + address + Environment.NewLine;
-					response += Insert("\t") + "itsrdf:taIdentRef" + Insert("\t") + (devil.InDBpedia ? $"dbpedia:{devil.DBpediaREF.Split('/').Last()}" : $"<http://aksw.org/notInWiki/{devil.Text.Replace(' ', '_')}>") + "." + Environment.NewLine;
-					response += Environment.NewLine;
-				}
-			}
-
-			return response;
+			return inputText + response;
 		}
 
-		private static string Insert(string s, int n = 1)
+		private static OntologyClasses GetOntologyClass(NerClasses nc)
 		{
-			var output = string.Empty;
+			 return GetOntologyClass((int) nc);
+		}
 
-			for (var i = 0; i < n; i++) output += s;
-
-			return output;
+		private static OntologyClasses GetOntologyClass(int nc)
+		{
+			switch (nc)
+			{
+				case 0:
+					return OntologyClasses.Person;
+				case 1:
+					return OntologyClasses.Place;
+				case 2:
+					return OntologyClasses.Organisation;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(nc), nc, null);
+			}
 		}
 	}
 }
