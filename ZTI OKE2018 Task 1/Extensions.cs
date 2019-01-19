@@ -31,15 +31,13 @@ namespace ZTI_OKE2018_Task_1
 
 		public static int CountStringOccurrences(string text, string pattern)
 		{
-			// Loop through all instances of the string 'text'.
-			var count = 0;
-			var i = 0;
+			int count = 0, i = 0;
+
 			while ((i = text.IndexOf(pattern, i, StringComparison.Ordinal)) != -1)
 			{
 				i += pattern.Length;
 				count++;
 			}
-
 			return count;
 		}
 
