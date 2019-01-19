@@ -7,6 +7,8 @@
 		Organisation
 	}
 
+	
+
 	public enum NerClasses
 	{
 		PERSON,

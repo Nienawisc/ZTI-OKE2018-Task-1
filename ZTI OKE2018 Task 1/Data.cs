@@ -9,30 +9,33 @@ namespace ZTI_OKE2018_Task_1
 {
 	public partial class Data
 	{
-		private Data(int startIndex, int stopIndex, string text)
+		private Data(int beginIndex, int endIndex, string text, string address)
 		{
-			StartIndex = startIndex;
-			StopIndex = stopIndex;
-			Text = text ?? throw new ArgumentNullException(nameof(text));
+			BeginIndex = beginIndex;
+			EndIndex = endIndex;
+			IsString = text ?? throw new ArgumentNullException(nameof(text));
+			Address = address ?? throw new ArgumentNullException(nameof(address));
 		}
 
-		public Data(int startIndex, int stopIndex, string text, CRFClassifier crfClassifier) : this(startIndex,
-			stopIndex, text)
+		public Data(int beginIndex, int endIndex, string text, string address, CRFClassifier crfClassifier) : this(beginIndex,
+			endIndex, text, address)
 		{
 			CrfClassifier = crfClassifier ?? throw new ArgumentNullException(nameof(crfClassifier));
 		}
 
-		private int StartIndex { get; }
+		private int BeginIndex { get; }
 
-		private int StopIndex { get; }
+		private int EndIndex { get; }
 
-		private string Text { get; }
+		private string IsString { get; }
+
+		private string Address { get; }
 
 		private CRFClassifier CrfClassifier { get; }
 
 		private MatchCollection FindByRegex(string pattern)
 		{
-			return new Regex(pattern).Matches(Text);
+			return new Regex(pattern).Matches(IsString);
 		}
 
 		public IEnumerable<Data> GetListOf(OntologyClasses oClass)
@@ -51,7 +54,7 @@ namespace ZTI_OKE2018_Task_1
 				var dbpGraph = endpoint.QueryWithResultSet(Extensions.CreateQuery(find, oClass));
 				if (dbpGraph.Results.Count <= 0) continue;
 
-				list.Add(new Data(m.Index, m.Index + find.Length, dbpGraph.Results.First()[1].ToString()));
+				//list.Add(new Data(m.Index, m.Index + find.Length, dbpGraph.Results.First()[1].ToString(), ));
 			}
 
 			return list;
@@ -69,7 +72,7 @@ namespace ZTI_OKE2018_Task_1
 			var k = 0;
 			var count = 0;
 
-			var nerText = Extensions.GetNerText(CrfClassifier, Text);
+			var nerText = Extensions.GetNerText(CrfClassifier, IsString);
 
 			var occurrences = Extensions.CountStringOccurrences(nerText, tagOpen);
 
@@ -89,10 +92,10 @@ namespace ZTI_OKE2018_Task_1
 
 				nazwa = nerText.Substring(adjustedPosA, posB - adjustedPosA);
 				
-				var t = new DataProperties(nazwa, Text.IndexOf(nazwa, k, StringComparison.Ordinal), (Text.IndexOf(nazwa, k, StringComparison.Ordinal) + nazwa.Length - 1));
+				var t = new DataProperties(Address, nazwa, nc, IsString.IndexOf(nazwa, k, StringComparison.Ordinal), (IsString.IndexOf(nazwa, k, StringComparison.Ordinal) + nazwa.Length - 1));
 				output.Add(t);
 				
-				k = Text.IndexOf(nazwa, k, StringComparison.Ordinal) + nazwa.Length;
+				k = IsString.IndexOf(nazwa, k, StringComparison.Ordinal) + nazwa.Length;
 				count += 1;
 			}
 
