@@ -13,10 +13,13 @@ using ZTI_OKE2018_Task_1.Properties;
 namespace ZTI_OKE2018_Task_1
 {
 	/// <summary>
-	///     <
+	///     Main class of program
 	/// </summary>
 	public partial class SparQLButton : Form
 	{
+		/// <summary>
+		///     Construktor - Initialize Componets
+		/// </summary>
 		public SparQLButton()
 		{
 			InitializeComponent();
@@ -24,24 +27,50 @@ namespace ZTI_OKE2018_Task_1
 			SparQL.Image = Resources.SparQL1;
 		}
 
+		/// <summary>
+		///     Object of NER Classifier
+		/// </summary>
 		private CRFClassifier Classifier { get; set; }
+
+		/// <summary>
+		///     FilePath to file that with request data
+		/// </summary>
 		private string InputFilePath { get; set; }
+
+		/// <summary>
+		///     Field responsible for the action of the program button. Default: false
+		/// </summary>
 		private bool IsSparQL { get; set; }
+
+		/// <summary>
+		///     Field responsible for the action of the program button. Default: false
+		/// </summary>
 		private bool IsDebug { get; set; }
 
+		/// <summary>
+		///     Main action for program.
+		///     If <see cref="IsSparQL" /> is true then use textbox.
+		/// </summary>
+		/// <param name="sender">Unused</param>
+		/// <param name="e">Unused</param>
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (IsSparQL)
 			{
 				var endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"));
 
+				//Checking for each Ontology Class that input-text from textbox is in DBPedia
 				foreach (var c in (OntologyClasses[]) Enum.GetValues(typeof(OntologyClasses)))
 				{
+					//Creating valid querry to ask dbpedia via sparql
 					var query = Extensions.CreateQuery(inputTextBox.Text, c, 5);
+
+					//Send request to DBPedia and get respond
 					var graph = endpoint.QueryWithResultSet(query);
 
 					if (!IsDebug) continue;
 
+					//Writing results
 					if (graph.Results.Count > 0)
 						outputTextBox.Text += @"Found in dbpedia: " + graph.Results.First() + Environment.NewLine + Environment.NewLine;
 					else
@@ -58,12 +87,13 @@ namespace ZTI_OKE2018_Task_1
 			//Load using a Filename
 			new TurtleParser().Load(g, InputFilePath);
 
+			//Create triples based on string text elements
 			var triples = g.Triples.Where(q => q.Predicate.ToString().ToLower().Contains("isString".ToLower())).GroupBy(q => q.Object).Select(q => q.First());
 
-			#region LINQ
+			#region Original from LINQ below
 
-			/* Orginal from LINQ below
-			var dataSet = new List<Data>();
+			/*
+			var dataSet = new List<InputData>();
 			foreach (var t in triples)
 			{
 				var match = new Regex("char=([0-9]+),([0-9]+)").Match(t.Subject.ToString());
@@ -72,14 +102,15 @@ namespace ZTI_OKE2018_Task_1
 				var startIndex = 0;
 				var stopIndex = int.Parse(match.Groups[2].Value);
 
-				var newData = new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), t.Subject.ToString(), Classifier);
+				var newData = new InputData(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), t.Subject.ToString(), Classifier);
 
 				dataSet.Add(newData);
 			}
 			// */
 
-			#endregion LINQ
+			#endregion Original from LINQ below
 
+			//Creating and parsing proper input data
 			var dataSet = (
 				from t
 					in triples
@@ -87,13 +118,15 @@ namespace ZTI_OKE2018_Task_1
 				where match.Success
 				let startIndex = 0
 				let stopIndex = int.Parse(match.Groups[2].Value)
-				select new Data(startIndex, stopIndex, t.Object.ToString().Substring(startIndex, stopIndex), t.Subject.ToString(), Classifier)
+				select new InputData(t.Object.ToString().Substring(startIndex, stopIndex), t.Subject.ToString(), Classifier)
 			).ToList();
 
-			var persons = new List<Data.DataProperties>();
-			var locations = new List<Data.DataProperties>();
-			var organizations = new List<Data.DataProperties>();
+			//Initialize components of output data
+			var persons = new List<OutputData>();
+			var locations = new List<OutputData>();
+			var organizations = new List<OutputData>();
 
+			//Get information from NER which strings belong to a given ontology
 			foreach (var data in dataSet)
 			{
 				persons = persons.Concat(data.GetOntologyEntries(NerClasses.PERSON).ToList()).ToList();
@@ -101,9 +134,13 @@ namespace ZTI_OKE2018_Task_1
 				organizations = organizations.Concat(data.GetOntologyEntries(NerClasses.ORGANIZATION).ToList()).ToList();
 			}
 
-			var output = new List<IEnumerable<Data.DataProperties>> {persons.Distinct(), locations.Distinct(), organizations.Distinct()};
+			//Initializing output data
+			var output = new List<IEnumerable<OutputData>> {persons.Distinct(), locations.Distinct(), organizations.Distinct()};
 
+			//Checking if entries have references in DBPedia
 			Extensions.AskDB(output);
+
+			//Writing output data in another textbox
 
 			#region Debug
 
@@ -134,9 +171,9 @@ namespace ZTI_OKE2018_Task_1
 
 			#endregion Debug
 
+			//Saving output data to .rdf
 			#region RdfXmlWrite
 
-			//new RdfXmlWriter().Save(g, "output.rdf");
 			var rdf = Extensions.CreateOutput(InputFilePath, output);
 
 			File.WriteAllText("output.rdf", rdf);
@@ -146,6 +183,11 @@ namespace ZTI_OKE2018_Task_1
 			MessageBox.Show("OK\r\n\r\nWyniki możesz podejrzeć naciskając guzik 'SparQL', następnie 'Debug'.", "Zakończono działanie.");
 		}
 
+		/// <summary>
+		///     NER Classifier file choosing handler
+		/// </summary>
+		/// <param name="sender">Unused</param>
+		/// <param name="e">Unused</param>
 		private void JarFileLocation_Click(object sender, EventArgs e)
 		{
 			var c = Extensions.OFD("gz files (*.gz)|*.gz|All files (*.*)|*.*");
@@ -154,6 +196,11 @@ namespace ZTI_OKE2018_Task_1
 			Stanford.Text = c;
 		}
 
+		/// <summary>
+		///     Request data file choosing handler
+		/// </summary>
+		/// <param name="sender">Unused</param>
+		/// <param name="e">Unused</param>
 		private void FileLocation_Click(object sender, EventArgs e)
 		{
 			var i = Extensions.OFD("ttl files (*.ttl)|*.ttl|All files (*.*)|*.*");
@@ -162,6 +209,11 @@ namespace ZTI_OKE2018_Task_1
 			InputFile.Text = i;
 		}
 
+		/// <summary>
+		///     SparQL Button handler
+		/// </summary>
+		/// <param name="sender">Unused</param>
+		/// <param name="e">Unused</param>
 		private void SparQL_Click(object sender, EventArgs e)
 		{
 			IsSparQL = !IsSparQL;
@@ -179,6 +231,11 @@ namespace ZTI_OKE2018_Task_1
 			DebugButton.Visible = false;
 		}
 
+		/// <summary>
+		///     Debug Textbox handler
+		/// </summary>
+		/// <param name="sender">Unused</param>
+		/// <param name="e">Unused</param>
 		private void DebugButton_Click(object sender, EventArgs e)
 		{
 			IsDebug = !IsDebug;

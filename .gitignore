@@ -267,3 +267,8 @@ __pycache__/
 *.pdb
 *.cache
 *.suo
+*.ide
+*.ide
+*.ide-shm
+*.ide-wal
+.vs/ZTI OKE2018 Task 1/v15/Server/sqlite3/storage.ide
